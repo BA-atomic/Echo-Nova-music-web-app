@@ -110,26 +110,27 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7.6rem;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 12rem;
 }
 
 .heroText {
-  padding: 4px;
+  padding-top: 4rem;
 }
 
 .heroHeader {
-  font-size: 3.6rem;
+  font-size: 4.4rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.5px;
-  color: #141414;
+  color: #1c1c1e;
   margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(94, 62, 255, 0.2);
 }
 
 .heroText p {
-  font-size: 2.2rem;
-  color: #333;
+  font-size: 2.6rem;
+  color: #444;
   margin-bottom: 4rem;
 }
 
@@ -163,4 +164,18 @@ body {
 .heroPicture:hover {
   transform: rotate(0deg) scale(1.05);
   cursor: pointer;
+}
+
+.ctaBtns {
+  display: flex;
+  align-items: center;
+  gap: 2.6rem;
+}
+
+button {
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.6rem;
+  background-color: #8447ff;
 }
