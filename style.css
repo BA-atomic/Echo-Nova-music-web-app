@@ -178,19 +178,18 @@ button {
   font-size: 1.6rem;
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.25);
-
   cursor: pointer;
 }
 
 #ctaView {
-  background-color: #893535;
+  background-color: #8447ff;
   color: #e4e4f3;
   transition: background-color 0.3s ease;
 }
 
 #ctaView:hover {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background-color: #893535;
+  background-color: #8e59f8;
+  transform: scale(0.98);
 }
 
 #ctaListen {
@@ -202,11 +201,12 @@ button {
   );
   color: #ddd;
   text-shadow: 0 0 10px rgba(94, 62, 255, 0.3);
+  border: 1px solid #8447ff;
 
   transition: background-color 0.3s ease;
 }
 
 #ctaListen:hover {
   background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid #8447ff;
+  transform: scale(0.98);
 }
