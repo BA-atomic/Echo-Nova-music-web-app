@@ -102,9 +102,11 @@ body {
 }
 
 /* ==== HERO SECTION ==== */
-.heroSection {
+section {
   width: 100%;
-  backdrop-filter: blur(20px);
+}
+
+.heroSection {
   background-color: #170835;
 }
 
@@ -209,4 +211,11 @@ button {
 #ctaListen:hover {
   background-color: rgba(255, 255, 255, 0.06);
   transform: scale(0.98);
+}
+
+/* ==== FEATURES SECTION ==== */
+h2 {
+  font-size: 2rem;
+  color: #3e2f5b;
+  text-shadow: 0 0 10px rgba(126, 103, 241, 0.3);
 }
