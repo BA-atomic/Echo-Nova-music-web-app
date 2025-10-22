@@ -242,9 +242,12 @@ h2 {
   font-size: 1.6rem;
 }
 
+h3 {
+  font-size: 1.8rem;
+}
+
 .featuresCardHeaderText {
   color: #170835;
-  font-size: 1.8rem;
 }
 
 .featuresCard {
