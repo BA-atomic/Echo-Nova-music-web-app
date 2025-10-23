@@ -310,13 +310,12 @@ h3 {
   padding: 1.5rem 2rem;
   border-radius: 4px;
   font-size: 1.6rem;
-  /* border: 1px solid rgba(255, 255, 255, 0.25); */
+  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
   color: #070212;
   font-weight: 600;
   background-color: #ddd;
   text-shadow: 0 0 10px rgba(94, 62, 255, 0.3);
-  border: 1px solid #8447ff;
 
   transition: background-color 0.3s ease;
 }
