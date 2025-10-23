@@ -266,6 +266,37 @@ h3 {
   font-size: 1.6rem;
 }
 
+/* ==== POSTERSHOWCASE SECTION ==== */
+.posterShowcase {
+  background-color: #170835;
+}
+
+.poster {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.songsPreview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.secondPosterCta {
+  align-self: center;
+  justify-self: center;
+}
+
 /* GLASS-SECITON */
 /* parent */
 /* background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%); */
