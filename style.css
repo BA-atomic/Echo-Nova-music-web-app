@@ -104,6 +104,7 @@ body {
 /* ==== HERO SECTION ==== */
 section {
   width: 100%;
+  margin-bottom: 2.4rem;
 }
 
 .heroSection {
@@ -235,6 +236,15 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  padding: 2rem 2rem;
+  border-top: 3px solid #8447ff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s;
+}
+
+.featuresCard:hover {
+  transform: scale(1.05);
 }
 
 .featuresIcon {
@@ -250,20 +260,9 @@ h3 {
   color: #170835;
 }
 
-.featuresCard {
-  padding: 2rem 1.5rem;
-  border-top: 3px solid #8447ff;
-  border-radius: 10px;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s;
-}
-
-.featuresCard:hover {
-  transform: scale(1.05);
-}
-
 .featuresCardText {
   font-size: 1.6rem;
+  margin-top: 1.2rem;
 }
 
 /* ==== POSTERSHOWCASE SECTION ==== */
@@ -284,6 +283,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .input {
@@ -324,6 +324,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2.4rem;
 }
 
 .secondPosterCta {
@@ -334,8 +335,29 @@ h3 {
 .posterShowcaseText {
   color: #ddd;
   justify-self: center;
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
 }
 
+.songContainer {
+  width: 25rem;
+}
+
+.imagePoster {
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+.songName {
+  color: #ddd;
+  font-size: 1.4rem;
+  margin-bottom: 1px;
+}
+
+.artistName {
+  color: #999;
+  font-size: 1.2rem;
+}
 /* GLASS-SECITON */
 /* parent */
 /* background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%); */

@@ -24,8 +24,8 @@ function displaySong(songs) {
     songDiv.classList.add("songContainer");
     songDiv.innerHTML = `
         <img src="${imageUrl}" class="imagePoster" alt="music cover art">
-        <h4>${songName}</h4>
-        <p>${artistName}</p>
+        <h4 class="songName">${songName}</h4>
+        <p class="artistName">${artistName}</p>
         `;
     songPreviews.appendChild(songDiv);
   });
