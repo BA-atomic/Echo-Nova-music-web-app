@@ -291,7 +291,7 @@ h3 {
   border-radius: 4px;
   border: none;
   outline: none;
-  width: 30%;
+  width: 50%;
   background-color: #ddd;
 }
 
@@ -328,6 +328,11 @@ h3 {
 
 .secondPosterCta {
   align-self: center;
+  justify-self: center;
+}
+
+.posterShowcaseText {
+  color: #ddd;
   justify-self: center;
 }
 
