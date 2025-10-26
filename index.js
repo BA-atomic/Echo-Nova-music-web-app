@@ -1,4 +1,5 @@
 const songPreviews = document.querySelector(".songsPreview");
+const songNames = document.querySelectorAll(".songName");
 
 async function getMusic() {
   try {
@@ -8,7 +9,7 @@ async function getMusic() {
     const songs = response.data.results;
     displaySong(songs);
   } catch (error) {
-      songPreviews.innerHTML = `<p>Something went wrong. Try again later.</p>`;
+    songPreviews.innerHTML = `<p>Something went wrong. Try again later.</p>`;
     console.error(error);
   }
 }
@@ -18,7 +19,7 @@ function displaySong(songs) {
   if (songs.length === 0)
     return (songDiv.innerHTML = `<p>CONTENT NOT FOUND PLEASE TRY AGAIN LATER</p>`);
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
-    const songName = collectionName;
+    const songName = shortenText(collectionName, 30);
     imageUrl = artworkUrl100;
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
@@ -29,4 +30,12 @@ function displaySong(songs) {
         `;
     songPreviews.appendChild(songDiv);
   });
+}
+
+function shortenText(word, maxLength) {
+  if (word.length > maxLength) {
+    return word.slice(0, maxLength) + '...'
+  } else {
+    return word
+  }
 }
