@@ -33,9 +33,5 @@ function displaySong(songs) {
 }
 
 function shortenText(word, maxLength) {
-  if (word.length > maxLength) {
-    return word.slice(0, maxLength) + '...'
-  } else {
-    return word
-  }
+  return word.length > maxLength ? word.slice(0, maxLength) + "..." : word;
 }
