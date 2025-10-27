@@ -3,7 +3,7 @@ const songNames = document.querySelectorAll(".songName");
 
 async function getMusic() {
   try {
-    const response = await axios.get("https://itues.apple.com/search?", {
+    const response = await axios.get("https://itunes.apple.com/search?", {
       params: { term: "afrobeats", media: "music", limit: 4 },
     });
     const songs = response.data.results;
