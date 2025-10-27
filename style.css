@@ -358,6 +358,14 @@ h3 {
   color: #999;
   font-size: 1.2rem;
 }
+
+.errormessage {
+  color: #999;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  justify-self: center;
+  padding: 4rem;
+}
 /* GLASS-SECITON */
 /* parent */
 /* background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%); */
