@@ -369,23 +369,79 @@ h3 {
 
 /* ==== DOWNLOADCTA SECTION ==== */
 .download {
-  display: flex;
+  display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   padding-bottom: 0;
+}
+
+/* .downloadSectionImageBox {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.downloadSectionImage {
+  width: 90%;
+} */
+
+.downloadSectionImageBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 8rem;
+}
+
+.downloadSectionImage {
+  width: 90%;
+  max-width: 600px;
+  object-fit: contain;
+}
+
+.downloadCta {
+  display: flex;
+  flex-direction: column;
+}
+
+.downloadCtaText {
+  font-size: 3.6rem;
+  color: #121212;
+  font-weight: 200;
+  margin-bottom: 6rem;
+  position: relative;
+}
+
+.downloadCtaText::after {
+  content: "";
+  position: absolute;
+  /* background: #8447ff; */
+  width: 20%;
+  height: 4px;
+  bottom: -10px;
+  left: 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #8447ff, #b266ff);
+}
+
+.downloadCtaSubText {
+  font-size: 1.8rem;
+  color: #121212;
+  font-weight: 600;
+  margin-bottom: 2.6rem;
 }
 
 .downloadBtn {
   display: inline-block;
-  width: 135px; 
-  height: 40px; 
+  width: 135px;
+  height: 40px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
   cursor: pointer;
   margin-right: 4px;
   text-decoration: none;
@@ -398,20 +454,6 @@ h3 {
 
 .googleplay {
   background-image: url(https://a-v2.sndcdn.com/assets/images/google_play_badge@en-51d52194.png);
-}
-
-.downloadSectionImageBox {
-  width: 50vw;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  overflow: hidden;
-}
-
-.downloadSectionImage {
-  width: 100%;
-  height: 100%;
-  margin-bottom: -15rem;
 }
 
 /* GLASS-SECITON */
