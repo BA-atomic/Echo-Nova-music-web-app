@@ -108,7 +108,7 @@ section {
 }
 
 .heroSection {
-  background-color: #170835;
+  background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%);
 }
 
 .hero {
@@ -267,7 +267,7 @@ h3 {
 
 /* ==== POSTERSHOWCASE SECTION ==== */
 .posterShowcase {
-  background-color: #170835;
+  background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%);
 }
 
 .poster {
@@ -310,7 +310,6 @@ h3 {
   padding: 1.5rem 2rem;
   border-radius: 4px;
   font-size: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
   color: #070212;
   font-weight: 600;
@@ -318,6 +317,10 @@ h3 {
   text-shadow: 0 0 10px rgba(94, 62, 255, 0.3);
 
   transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+  background-color: #b1b1b1;
 }
 
 .songsPreview {
@@ -346,6 +349,12 @@ h3 {
 .imagePoster {
   width: 100%;
   margin-bottom: 3px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.imagePoster:hover {
+  transform: scale(1.05);
 }
 
 .songName {
@@ -375,6 +384,11 @@ h3 {
   justify-content: center;
   gap: 1rem;
   padding-bottom: 0;
+  padding-top: 8.6rem;
+}
+
+.downloadSection {
+  margin: 0;
 }
 
 .downloadSectionImageBox {
@@ -383,7 +397,6 @@ h3 {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding-top: 8rem;
 }
 
 .downloadSectionImage {
@@ -396,6 +409,8 @@ h3 {
   display: flex;
   flex-direction: column;
   width: 80%;
+  height: 30.6rem;
+  overflow: hidden;
 }
 
 .downloadCtaText {
@@ -447,9 +462,85 @@ h3 {
   background-image: url(https://a-v2.sndcdn.com/assets/images/google_play_badge@en-51d52194.png);
 }
 
+/* ==== PAYMENT PLAN SECTION ==== */
+.paymentPlanSection {
+  background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%);
+}
+
+.paymentPlan {
+  display: flex;
+  flex-direction: column;
+  padding-top: 7.2rem;
+}
+
+.paymentPlanBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.paymentPlanText {
+  font-size: 4rem;
+  color: #ddd;
+  line-height: 1;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: -1.6px;
+}
+
+.paymentPlanSubText {
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 16px auto 32px;
+  text-align: center;
+  padding: 0px;
+  max-width: 671px;
+}
+
+.paymentBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.paymentPoster {
+  display: inline-block;
+  width: 55px;
+  height: 30px;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #fff;
+  cursor: pointer;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.paymentPoster:hover {
+  transform: translateY(-2px);
+}
+
+.visa {
+  background-image: url(https://paymentsdk.spotifycdn.com/svg/cards/visa.svg);
+}
+
+.mastercard {
+  background-image: url(https://paymentsdk.spotifycdn.com/svg/cards/mastercard.svg);
+}
+
+.verve {
+  background-image: url(https://paymentsdk.spotifycdn.com/svg/cards/verve.svg);
+  background-size: 89%; 
+  background-position: center 55%;
+}
+
+
 /* GLASS-SECITON */
 /* parent */
-/* background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%); */
 
 /* child */
 /* background: rgba(255, 255, 255, 0.08);
