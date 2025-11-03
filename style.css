@@ -504,6 +504,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 7.2rem;
 }
 
 .paymentPoster {
@@ -534,10 +535,35 @@ h3 {
 
 .verve {
   background-image: url(https://paymentsdk.spotifycdn.com/svg/cards/verve.svg);
-  background-size: 89%; 
+  background-size: 89%;
   background-position: center 55%;
 }
 
+.premiumFeaturesBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.premiumFeaturesText {
+  font-size: 2.8rem;
+  color: #ddd;
+}
+
+.premiumFeatures {
+  list-style: none;
+  color: #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.8rem;
+}
+
+.fa-check {
+  margin-right: 1rem;
+  color: #ddd;
+}
 
 /* GLASS-SECITON */
 /* parent */
