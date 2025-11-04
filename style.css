@@ -544,6 +544,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 6rem;
+  margin-bottom: 4rem;
 }
 
 .premiumFeaturesText {
@@ -569,14 +570,13 @@ h3 {
   display: flex;
   align-items: stretch;
   gap: 2rem;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .premiumPlan {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-
+  gap: 2rem;
   flex: 1;
   padding: 1.5rem;
   border-radius: 1rem;
@@ -591,10 +591,12 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  border-bottom: 1px solid #999;
+  padding-bottom: 2rem;
 }
 
 .navLogoPremium {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   background: linear-gradient(135deg, #8447ff, #b388ff);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -602,6 +604,50 @@ h3 {
 }
 
 .premiumPlanHeadertext {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 400;
+}
+
+.planName {
+  font-size: 2.8rem;
+}
+
+.individual {
+  background: linear-gradient(135deg, #5efce8, #39a0ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.student {
+  background: linear-gradient(135deg, #c471f5, #fa71cd);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.family {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.planPrice {
+  font-size: 1.6rem;
+}
+
+.premiumPlanFeatures {
+  padding: 1.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.premiumFeaturesList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.premiumPlanFeature {
+  font-size: 1.4rem;
+  font-weight: 500;
 }
