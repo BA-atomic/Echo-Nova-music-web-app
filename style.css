@@ -576,7 +576,6 @@ h3 {
 .premiumPlan {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
   padding: 1.5rem 2rem;
   border-radius: 1rem;
@@ -635,10 +634,11 @@ h3 {
 
 .premiumPlanFeatures {
   padding: 1.6rem 1.2rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  height: 200px;
+  align-items: center;
   gap: 1rem;
-  flex: 1;
 }
 
 .premiumFeaturesList {
@@ -658,7 +658,7 @@ h3 {
   color: #121212;
   font-size: 1.6rem;
   padding: 1rem 2rem;
-  border-radius: 6px;
+  border-radius: 100px;
   text-align: center;
   font-weight: 500;
 }
@@ -673,4 +673,20 @@ h3 {
 
 .premiumFamily {
   background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+.noteBox,
+.Terms {
+  font-size: 1rem;
+}
+
+.Terms {
+  color: inherit;
+}
+
+/* 6️⃣ Make noteBox flexible */
+.noteBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
