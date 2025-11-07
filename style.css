@@ -314,13 +314,10 @@ h3 {
   color: #070212;
   font-weight: 600;
   background-color: #ddd;
-  text-shadow: 0 0 10px rgba(94, 62, 255, 0.3);
-
-  transition: background-color 0.3s ease;
 }
 
 .cta:hover {
-  background-color: #b1b1b1;
+  transform: scale(0.98);
 }
 
 .songsPreview {
@@ -696,9 +693,66 @@ h3 {
 /* ==== PAYMENT PLAN SECTION ==== */
 
 .accountSection {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  color: #121212;
+}
+
+.accountSectionHeader {
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -1.6px;
+}
+
+.accountSectionSubText {
+  font-size: 1.6rem;
+}
+
+.ctaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ctaCreateBtn {
+  text-decoration: none;
+  padding: 1.5rem 2rem;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #070212;
+  font-weight: 600;
+  background-color: #ddd;
+  transition: color 0.3s ease;
+}
+
+.ctaCreateBtn:hover {
+  transform: scale(0.98);
+}
+
+.ctaQuestion,
+.signIn {
+  text-decoration: none;
+  color: #120626;
+}
+
+.ctaQuestion {
+  font-size: 1.4rem;
+}
+
+.ctaQuestion:hover {
+  text-decoration: underline;
+}
+
+.signIn {
+  font-size: 1.8rem;
+}
+
+.signIn:hover {
+  opacity: 0.9;
 }
