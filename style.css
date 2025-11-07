@@ -314,6 +314,7 @@ h3 {
   color: #070212;
   font-weight: 600;
   background-color: #ddd;
+  transition: transform 0.3s ease;
 }
 
 .cta:hover {
@@ -728,7 +729,7 @@ h3 {
   color: #070212;
   font-weight: 600;
   background-color: #ddd;
-  transition: color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .ctaCreateBtn:hover {
