@@ -729,7 +729,6 @@ h3 {
   color: #070212;
   font-weight: 600;
   background-color: #ddd;
-  transition: transform 0.3s ease;
 }
 
 .ctaCreateBtn:hover {
