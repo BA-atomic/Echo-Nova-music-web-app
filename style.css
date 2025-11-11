@@ -22,7 +22,6 @@ body {
   width: 95%;
   max-width: 120rem;
   margin: 0 auto;
-  padding: 2.3rem 0;
 }
 
 /* ==== NAVBAR SECTION ==== */
@@ -115,6 +114,7 @@ section {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 12rem;
+  padding: 4.2rem 0;
 }
 
 .heroText {
@@ -215,6 +215,10 @@ button {
 }
 
 /* ==== FEATURES SECTION ==== */
+.features {
+  padding: 4.2rem 0;
+}
+
 h2 {
   font-size: 2rem;
   color: #3e2f5b;
@@ -276,6 +280,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  padding: 4.8rem 0;
 }
 
 .search {
@@ -468,7 +473,7 @@ h3 {
 .paymentPlan {
   display: flex;
   flex-direction: column;
-  padding-top: 7.2rem;
+  padding: 7.2rem 0 4.2rem 0;
 }
 
 .paymentPlanBox {
@@ -700,6 +705,7 @@ h3 {
   justify-content: center;
   gap: 2.4rem;
   color: #121212;
+  padding: 5rem 0;
 }
 
 .accountSectionHeader {
@@ -726,13 +732,14 @@ h3 {
   border-radius: 4px;
   font-size: 1.6rem;
   cursor: pointer;
-  color: #070212;
   font-weight: 600;
-  background-color: #ddd;
+  background: linear-gradient(135deg, #8447ff, #6c2cff);
+  color: #fff;
 }
 
 .ctaCreateBtn:hover {
   transform: scale(0.98);
+  background: linear-gradient(135deg, #955aff, #7c3dff);
 }
 
 .ctaQuestion,
@@ -755,4 +762,157 @@ h3 {
 
 .signIn:hover {
   opacity: 0.9;
+}
+
+/* ==== FOOTER SECTION ==== */
+.footerSection {
+  background: linear-gradient(160deg, #120626 0%, #2b0b55 40%, #170833 100%);
+  padding: 4rem 0 2rem 0;
+  color: #ddd;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 4.2rem 0;
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: auto 1fr 0.5fr;
+  gap: 4rem;
+  align-items: flex-start;
+  margin-bottom: 2.8rem;
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerBrandlogo {
+  display: flex;
+}
+
+.footerLogoIcon,
+.footerLogo {
+  font-size: 2.4rem;
+}
+
+.footerLogo {
+  background: linear-gradient(135deg, #8447ff, #b388ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* LINKS */
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.footerColumn h4 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  margin-bottom: 1.6rem;
+}
+
+.footerColumn ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footerColumn ul li a {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerColumn ul li a:hover {
+  color: #b388ff;
+}
+
+/* NEWSLETTER */
+.footerNewsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerHeader {
+  font-size: 1.6rem;
+}
+
+.newsletterText {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 0.4rem 0.6rem;
+  backdrop-filter: blur(8px);
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.newsletterBtn {
+  background: linear-gradient(135deg, #8447ff, #b388ff);
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.8rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.newsletterBtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #9b63ff, #c2a0ff);
+}
+
+/* SOCIALS & COPYRIGHT */
+.footerSocials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.footerSocials a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+.footerSocials a:hover {
+  color: #b388ff;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.6);
 }
