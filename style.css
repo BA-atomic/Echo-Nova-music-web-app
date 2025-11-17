@@ -887,7 +887,7 @@ h3 {
 }
 
 .newsletterBtn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1.3px);
   background: linear-gradient(135deg, #9b63ff, #c2a0ff);
 }
 
@@ -917,12 +917,48 @@ h3 {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.hide {
-  display: none;
-}
-
-.successMessage, .errorMessage {
+.message {
   text-align: center;
   margin-top: 1rem;
   font-size: 1.4rem;
+  padding: 10px 14px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none; /* prevent clicking while hidden */
+  border-radius: 0.5rem;
+}
+
+/* Colors */
+.successMessage {
+  background: #d6f5d6;
+  color: #0f7a0f;
+}
+
+.errorMessage {
+  background: #ffd6d6;
+  color: #b20000;
+}
+
+/* Slide & Fade Animation */
+.showMessage {
+  animation: slideFade 4s forwards;
+}
+
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
 }

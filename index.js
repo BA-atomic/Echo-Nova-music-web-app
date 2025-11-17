@@ -1,8 +1,7 @@
 const songPreviews = document.querySelector(".songsPreview");
 const songNames = document.querySelectorAll(".songName");
 const form = document.querySelector(".newsletterForm");
-const successMessage = document.querySelector(".successMessage");
-const errorMessage = document.querySelector(".errorMessage");
+const message = document.querySelector(".message");
 const messageContainer = document.querySelector(".messageContainer");
 const input = document.querySelector(".newsletterInput");
 
@@ -47,25 +46,38 @@ function shortenText(word, maxLength) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const email = input.value.trim();
-  if (isValidEmail(email)) {
-    showMessage(successMessage);
+  input.value = "";
+
+  if (email === "") {
+    displayMessage("Please enter a valid email address.");
+    removeClass(message, "errorMessage", "successMessage");
+  } else if (isValidEmail(email)) {
+    displayMessage("Sucessfully submitted");
+    removeClass(message, "successMessage", "errorMessage");
   } else {
-    showMessage(errorMessage);
+    displayMessage("Please enter a valid email address.");
+    removeClass(message, "errorMessage", "successMessage");
   }
 });
 
-function showMessage(elementToShow) {
-  successMessage.classList.add("hide");
-  errorMessage.classList.add("hide");
-  elementToShow.classList.remove("hide");
+function removeClass(element, classToAdd, classToRemove) {
+  element.classList.add(classToAdd);
+  element.classList.remove(classToRemove);
+}
+
+function displayMessage(text) {
+  message.textContent = text;
+  message.classList.remove("showMessage");
+  message.classList.add("showMessage");
   setTimeout(() => {
-    elementToShow.classList.add("hide");
-  }, 2000);
+    message.classList.remove("showMessage");
+  }, 3000);
 }
 
 function isValidEmail(email) {
   email = email.trim();
   if (
+    !email ||
     !email.includes("@") ||
     !email.includes(".") ||
     email.includes("..") ||
@@ -74,6 +86,7 @@ function isValidEmail(email) {
     return false;
 
   const emailparts = email.split("@");
+  if (emailparts.length > 2) return false;
   const [local, domain] = emailparts;
   if (!local || !domain) return false;
 
@@ -84,13 +97,7 @@ function isValidEmail(email) {
 
   const domainParts = domain.split(".");
   const tld = domainParts[domainParts.length - 1];
-  if (tld.length < 2) return false;
+  if (!tld || tld.length < 2) return false;
 
   return true;
 }
-
-console.log(isValidEmail("atomic.dev@example.com"));
-console.log(isValidEmail("atomic.dev@domain"));
-console.log(isValidEmail("atomic@.com"));
-console.log(isValidEmail("@example.com"));
-console.log(isValidEmail(" atomic@example.com "));
