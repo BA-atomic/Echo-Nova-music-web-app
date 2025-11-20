@@ -114,11 +114,7 @@ section {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 12rem;
-  padding: 4.2rem 0;
-}
-
-.heroText {
-  padding-top: 4rem;
+  padding: 4.2rem 3rem;
 }
 
 .heroHeader {

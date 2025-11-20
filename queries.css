@@ -1,0 +1,40 @@
+@media (max-width: 1048px) {
+  button {
+    font-size: 1.4rem;
+  }
+
+  .heroImage {
+    width: 35rem;
+    height: 35rem;
+  }
+
+  .featuresCardHeaderText {
+    font-size: 1.6rem;
+  }
+
+  .featuresCardText {
+    font-size: 1.4rem;
+  }
+
+  .songContainer {
+    width: 22rem;
+  }
+}
+
+@media (max-width: 1008px) {
+  .footerTop {
+    gap: 3rem;
+  }
+
+    .featuresCardHeaderText {
+    font-size: 1.4rem;
+  }
+
+  .featuresCardText {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 986px) {
+
+}
