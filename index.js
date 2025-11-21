@@ -28,7 +28,9 @@ function displaySong(songs) {
   }
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
     const songName = shortenText(collectionName, 20);
-const imageUrl = artworkUrl100.replace(/^http:\/\//, "https://");
+    const imageUrl = artworkUrl100
+      .replace("100x100bb", "600x600bb")
+      .replace(/^http:\/\//, "https://");
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
     songDiv.innerHTML = `
