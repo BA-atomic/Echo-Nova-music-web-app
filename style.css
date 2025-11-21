@@ -379,7 +379,7 @@ h3 {
 .download {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   gap: 1rem;
   padding-bottom: 0;
@@ -394,12 +394,11 @@ h3 {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  align-items: end;
 }
 
 .downloadSectionImage {
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   object-fit: contain;
 }
@@ -408,8 +407,7 @@ h3 {
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 30.6rem;
-  overflow: hidden;
+  padding-bottom: 3rem;
 }
 
 .downloadCtaText {
@@ -440,6 +438,11 @@ h3 {
   margin-bottom: 2.6rem;
 }
 
+.ctaBox {
+  display: flex;
+  gap: 1rem;
+}
+
 .downloadBtn {
   display: inline-block;
   width: 135px;
@@ -448,7 +451,6 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
-  margin-right: 4px;
   text-decoration: none;
   color: transparent;
 }

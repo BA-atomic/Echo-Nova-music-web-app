@@ -4,6 +4,7 @@ const form = document.querySelector(".newsletterForm");
 const message = document.querySelector(".message");
 const messageContainer = document.querySelector(".messageContainer");
 const input = document.querySelector(".newsletterInput");
+const mediaQuery = window.matchMedia("(max-width: 800px)");
 
 async function getMusic() {
   try {
@@ -26,7 +27,7 @@ function displaySong(songs) {
     return;
   }
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
-    const songName = shortenText(collectionName, 30);
+    const songName = shortenText(collectionName, 20);
     const imageUrl = artworkUrl100;
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
@@ -59,6 +60,12 @@ form.addEventListener("submit", function (e) {
     removeClass(message, "errorMessage", "successMessage");
   }
 });
+
+mediaQuery.addEventListener('change', e => {
+  if (e.matches) {
+     console.log("Media query (min-width: 800px) is now active.");
+  }
+})
 
 function removeClass(element, classToAdd, classToRemove) {
   element.classList.add(classToAdd);

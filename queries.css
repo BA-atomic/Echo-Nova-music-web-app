@@ -19,22 +19,504 @@
   .songContainer {
     width: 22rem;
   }
+
+  .downloadCtaText {
+    margin-bottom: 5rem;
+    font-size: 3rem;
+  }
+
+  .ctaBox {
+    display: flex;
+  }
 }
 
 @media (max-width: 1008px) {
   .footerTop {
-    gap: 3rem;
+    gap: 2rem;
   }
 
-    .featuresCardHeaderText {
+  .featuresCardHeaderText {
     font-size: 1.4rem;
   }
 
   .featuresCardText {
     font-size: 1.2rem;
   }
+
+  .download {
+    gap: 3rem;
+  }
+
+  .downloadBtn {
+    background-size: 100% 40px;
+  }
 }
 
-@media (max-width: 986px) {
+@media (max-width: 980px) {
+  .songContainer {
+    width: 20rem;
+  }
 
+  .songName {
+    font-size: 1.2rem;
+  }
+
+  .artistName {
+    font-size: 1rem;
+  }
+
+  .downloadCta {
+    padding-bottom: 2.4rem;
+  }
+
+  .footerTop {
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 963px) {
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .footerLinks {
+    justify-content: space-between;
+  }
+
+  .footerNewsletter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 918px) {
+  .heroHeader {
+    font-size: 3.8rem;
+  }
+
+  .heroText p {
+    font-size: 2.4rem;
+  }
+
+  .premiumCtaBtn {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 888px) {
+  .heroHeader {
+    font-size: 3.4rem;
+  }
+
+  .heroText p {
+    font-size: 2.2rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .heroImage {
+    width: 32rem;
+    height: 32rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+  .featuresCardHeaderText {
+    font-size: 1.2rem;
+  }
+
+  .featuresCardText {
+    font-size: 1rem;
+  }
+
+  .featuresCards {
+    padding: 0 3rem;
+  }
+
+  .paymentPlanText {
+    font-size: 3.8rem;
+  }
+
+  .premiumPlanFeature {
+    font-size: 1.2rem;
+  }
+
+  .premiumCtaBtn {
+    font-size: 1.2rem;
+  }
+
+  .noteBox,
+  .Terms {
+    font-size: 1rem;
+  }
+
+  .downloadCtaSubText {
+    font-size: 1.6rem;
+  }
+
+  .accountSectionHeader {
+    font-size: 3.8rem;
+  }
+
+  .songContainer {
+    width: 24%;
+  }
+}
+
+@media (max-width: 816px) {
+  .heroHeader {
+    font-size: 3.2rem;
+  }
+
+  .heroText p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .heroHeader {
+    font-size: 3rem;
+  }
+
+  .heroText p {
+    font-size: 1.8rem;
+  }
+
+  .featuresCardHeaderText {
+    font-size: 1rem;
+  }
+
+  .featuresCardText {
+    margin-top: 0;
+    font-size: 0.8rem;
+  }
+
+  .songContainer {
+    width: 20%;
+  }
+
+  .downloadCta {
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 782px) {
+  .heroHeader {
+    font-size: 2.8rem;
+  }
+
+  .heroText p {
+    font-size: 1.6rem;
+  }
+
+  .heroImage {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  .downloadCtaSubText {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .navLinks {
+    gap: 2rem;
+    font-size: 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .heroText {
+    padding-top: 1rem;
+  }
+
+  .ctaBtns {
+    justify-content: center;
+  }
+
+  .heroImage {
+    width: 28rem;
+    height: 28rem;
+    justify-self: center;
+  }
+
+  .heroPicture {
+    transform: rotate(0);
+  }
+
+  .featuresCards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .featuresCard:last-child {
+    grid-column: 2/ 3;
+  }
+
+  .downloadCta {
+    padding-bottom: 1.2rem;
+  }
+
+  .downloadBtn {
+    width: 110px;
+    height: 40px;
+  }
+
+  /* ===== PAYMENT PLANS ===== */
+  .premiumPlansBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .premiumPlan:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 689px) {
+  .posterShowcaseText {
+    font-size: 2rem;
+  }
+
+  .songsPreview {
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .songContainer {
+    width: 40%;
+  }
+
+  .downloadCtaText {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .downloadCtaSubText {
+    margin-bottom: 1.6rem;
+  }
+
+  .premiumFeaturesText {
+    font-size: 2.4rem;
+  }
+
+  .premiumFeatures {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 574px) {
+  .posterShowcaseText {
+    font-size: 1.8rem;
+  }
+
+  .download {
+    padding-top: 4rem;
+    gap: 5rem;
+  }
+
+  .downloadCta {
+    padding-top: 4rem;
+  }
+
+  .downloadCtaText {
+    font-size: 2.4rem;
+    width: 60%;
+  }
+
+  .downloadCtaSubText {
+    font-size: 1.2rem;
+  }
+
+  .paymentPlanText {
+    font-size: 3.4rem;
+  }
+
+  .premiumFeaturesBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .premiumPlansBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .premiumPlan:last-child {
+    grid-column: auto;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .accountSection {
+    padding: 2.4rem 0;
+  }
+
+  .accountSectionHeader {
+    font-size: 3rem;
+  }
+
+  .footerColumn h4 {
+    font-size: 1.4rem;
+  }
+
+  .footerColumn ul li a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 546px) {
+  .paymentPlanSubText {
+    font-size: 1.4rem;
+  }
+
+  .featuresCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .downloadCtaText {
+    font-size: 1.6rem;
+    width: 70%;
+  }
+
+  .downloadCtaText::after {
+    bottom: -15px;
+  }
+
+  .downloadCtaSubText {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 536px) {
+  .paymentPlanText {
+    font-size: 3.2rem;
+  }
+
+  .footerLinks {
+    gap: 3rem;
+  }
+
+  .posterShowcaseText {
+    font-size: 1.6rem;
+  }
+
+  .downloadCta {
+    width: 90%;
+  }
+}
+
+@media (max-width: 506px) {
+  .downloadCtaText {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText p {
+    font-size: 2rem;
+  }
+
+  .input {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .cta {
+    padding: 1.2rem 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .paymentPlanText {
+    font-size: 3rem;
+  }
+
+  .posterShowcaseText {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .downloadCta {
+    padding-top: 2rem;
+  }
+
+  .downloadCtaSubText {
+    font-size: 1rem;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 438px) {
+  .accountSectionHeader {
+    font-size: 2.6rem;
+  }
+
+  .accountSectionSubText {
+    font-size: 1.2rem;
+  }
+
+  .downloadBtn {
+    width: 90px;
+    height: 40px;
+  }
+
+  .cta {
+    padding: 1rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .input {
+    padding: 1rem 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+.featuresCardHeaderText {
+    font-size: 0.8rem;
+}
+
+.featuresCardText {
+        font-size: 0.6rem;
+    }
+
+  .cta {
+    padding: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  .input {
+    padding: 0.8rem;
+  }
+
+      .accountSectionHeader {
+        font-size: 2.4rem;
+    }
 }
