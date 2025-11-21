@@ -1,0 +1,152 @@
+@keyframes blurReveal {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.heroHeader {
+  animation: blurReveal 1s ease forwards;
+}
+
+.heroText p {
+  animation: blurReveal 1.3s ease forwards;
+}
+
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#ctaView {
+  animation: slideFadeIn 1s ease-out forwards;
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+#ctaListen {
+  animation: pulseGlow 1.2s ease-out forwards;
+}
+
+
+@keyframes heroZoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.15) translateY(20px);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.heroPicture {
+  animation: heroZoomOut 1.3s ease-out forwards;
+}
+
+
+@keyframes navReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.navigation {
+  animation: navReveal 0.9s ease-out forwards;
+}
+
+@keyframes logoPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: brightness(0.5) blur(4px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.07);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.siteLogo {
+  animation: logoPop 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes linkFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navLink {
+  opacity: 0;
+  animation: linkFadeUp 0.7s ease-out forwards;
+}
+
+/* Staggering delay */
+.navLink:nth-child(1) { animation-delay: 0.35s; }
+.navLink:nth-child(2) { animation-delay: 0.45s; }
+.navLink:nth-child(3) { animation-delay: 0.55s; }
+.navLink:nth-child(4) { animation-delay: 0.65s; }
+
+@keyframes toggleReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+#themeToggle {
+  animation: toggleReveal 0.9s ease-out forwards;
+  animation-delay: 0.7s;
+}

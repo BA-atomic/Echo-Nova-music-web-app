@@ -156,13 +156,7 @@ section {
   width: 90%;
   border-radius: 2rem;
   box-shadow: 8px 6px 16px #2b2a2a4a, -8px -8px 16px #2b2a2a20;
-  transform: rotate(-8deg);
   transition: transform 0.5s ease;
-}
-
-.heroPicture:hover {
-  transform: rotate(0deg) scale(1.05);
-  cursor: pointer;
 }
 
 .ctaBtns {
@@ -203,6 +197,7 @@ button {
   border: 1px solid #8447ff;
 
   transition: background-color 0.3s ease;
+
 }
 
 #ctaListen:hover {
@@ -959,4 +954,35 @@ h3 {
     opacity: 0;
     transform: translateX(-50px);
   }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal.show {
+  opacity: 1;
+  animation: fadeInTop 02s ease 0s 1 normal forwards;
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scaleUp {
+	0% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }

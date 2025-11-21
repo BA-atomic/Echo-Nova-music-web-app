@@ -28,7 +28,7 @@ function displaySong(songs) {
   }
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
     const songName = shortenText(collectionName, 20);
-    const imageUrl = artworkUrl100;
+const imageUrl = artworkUrl100.replace(/^http:\/\//, "https://");
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
     songDiv.innerHTML = `
@@ -61,11 +61,11 @@ form.addEventListener("submit", function (e) {
   }
 });
 
-mediaQuery.addEventListener('change', e => {
+mediaQuery.addEventListener("change", (e) => {
   if (e.matches) {
-     console.log("Media query (min-width: 800px) is now active.");
+    console.log("Media query (min-width: 800px) is now active.");
   }
-})
+});
 
 function removeClass(element, classToAdd, classToRemove) {
   element.classList.add(classToAdd);
@@ -108,3 +108,22 @@ function isValidEmail(email) {
 
   return true;
 }
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+  }
+);
+
+reveals.forEach((el) => {
+  observer.observe(el);
+});
