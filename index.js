@@ -28,13 +28,13 @@ function displaySong(songs) {
   }
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
     const songName = shortenText(collectionName, 20);
-    const imageUrl = artworkUrl100
-      .replace("100x100bb", "600x600bb")
-      .replace(/^http:\/\//, "https://");
+    const imageUrl =
+      artworkUrl100.replace(/^http:\/\//, "https://") + `?${Date.now()}`;
+
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
     songDiv.innerHTML = `
-        <img src="${imageUrl}" class="imagePoster" alt="music cover art">
+        <img src="${imageUrl}" class="imagePoster" alt="music cover art"  crossorigin="anonymous">
         <h4 class="songName">${songName}</h4>
         <p class="artistName">${artistName}</p>
         `;
