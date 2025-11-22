@@ -23,24 +23,39 @@ getMusic();
 
 function displaySong(songs) {
   if (songs.length === 0) {
-    songPreviews.innerHTML = `<p>CONTENT NOT FOUND PLEASE TRY AGAIN LATER</p>`;
+    songPreviews.innerHTML = `<p>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
     return;
   }
+
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
     const songName = shortenText(collectionName, 20);
-    const imageUrl =
-      artworkUrl100.replace(/^http:\/\//, "https://") + `?${Date.now()}`;
 
+    // Ensure HTTPS
+    const rawImage = artworkUrl100.replace(/^http:\/\//, "https://");
+
+    // Safari-safe CORS proxy
+    const imageUrl = `https://corsproxy.io/?${encodeURIComponent(rawImage)}`;
+
+    // Song card
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
+
     songDiv.innerHTML = `
-        <img src="${imageUrl}" class="imagePoster" alt="music cover art"  crossorigin="anonymous">
-        <h4 class="songName">${songName}</h4>
-        <p class="artistName">${artistName}</p>
-        `;
+      <img 
+        src="${imageUrl}" 
+        class="imagePoster lazyFade" 
+        loading="lazy"
+        alt="music cover art"
+        onerror="this.onerror=null; this.src='fallback.jpg'"
+      >
+      <h4 class="songName">${songName}</h4>
+      <p class="artistName">${artistName}</p>
+    `;
+
     songPreviews.appendChild(songDiv);
   });
 }
+
 
 function shortenText(word, maxLength) {
   return word.length > maxLength ? word.slice(0, maxLength) + "..." : word;
