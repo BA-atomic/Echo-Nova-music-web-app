@@ -23,44 +23,40 @@ getMusic();
 
 function displaySong(songs) {
   if (songs.length === 0) {
-    songPreviews.innerHTML = `<p>CONTENT NOT FOUND PLEASE TRY AGAIN LATER</p>`;
+    songPreviews.innerHTML = `<p>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
     return;
   }
 
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
     const songName = shortenText(collectionName, 20);
 
-    // FORCE HTTPS
-    let img = artworkUrl100.replace("http://", "https://");
+    // Ensure HTTPS
+    const rawImage = artworkUrl100.replace(/^http:\/\//, "https://");
 
-    // FORCE higher resolution (Safari rejects small 100px images sometimes)
-    img = img.replace("100x100bb.jpg", "600x600bb.jpg");
+    // Safari-safe CORS proxy
+    let imageUrl = artworkUrl100.replace("http://", "https://");
 
-    // FORCE JPEG instead of WEBP (Safari hates some webp variants)
-    img = img.replace(".webp", ".jpg");
+    // Safari fix: force high-res version
+    imageUrl = imageUrl.replace("100x100bb.jpg", "600x600bb.jpg");
 
+    // avoid Safari WebP bug
+    imageUrl = imageUrl.replace(".webp", ".jpg");
+
+    // cache bust
+    imageUrl += `?v=${Date.now()}`;
+
+    // Song card
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
 
-    const imageElement = document.createElement("img");
-    imageElement.classList.add("imagePoster");
-    imageElement.alt = "music cover art";
-    imageElement.crossOrigin = "anonymous";
-
-    // set src only after successful load (Safari fix)
-    const testImage = new Image();
-    testImage.onload = () => {
-      imageElement.src = testImage.src;
-    };
-    testImage.onerror = () => {
-      // final fallback: guaranteed Safari-safe placeholder
-      imageElement.src =
-        "https://via.placeholder.com/600x600?text=Image+Unavailable";
-    };
-    testImage.src = img;
-
-    songDiv.appendChild(imageElement);
-    songDiv.innerHTML += `
+    songDiv.innerHTML = `
+      <img 
+        src="${imageUrl}" 
+        class="imagePoster lazyFade" 
+        loading="lazy"
+        alt="music cover art"
+        onerror="this.onerror=null; this.src='fallback.jpg'"
+      >
       <h4 class="songName">${songName}</h4>
       <p class="artistName">${artistName}</p>
     `;
