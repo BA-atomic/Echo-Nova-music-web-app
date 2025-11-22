@@ -23,31 +23,44 @@ getMusic();
 
 function displaySong(songs) {
   if (songs.length === 0) {
-    songPreviews.innerHTML = `<p>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
+    songPreviews.innerHTML = `<p>CONTENT NOT FOUND PLEASE TRY AGAIN LATER</p>`;
     return;
   }
 
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
     const songName = shortenText(collectionName, 20);
 
-    // Ensure HTTPS
-    const rawImage = artworkUrl100.replace(/^http:\/\//, "https://");
+    // FORCE HTTPS
+    let img = artworkUrl100.replace("http://", "https://");
 
-    // Safari-safe CORS proxy
-    const imageUrl = `https://corsproxy.io/?${encodeURIComponent(rawImage)}`;
+    // FORCE higher resolution (Safari rejects small 100px images sometimes)
+    img = img.replace("100x100bb.jpg", "600x600bb.jpg");
 
-    // Song card
+    // FORCE JPEG instead of WEBP (Safari hates some webp variants)
+    img = img.replace(".webp", ".jpg");
+
     const songDiv = document.createElement("div");
     songDiv.classList.add("songContainer");
 
-    songDiv.innerHTML = `
-      <img 
-        src="${imageUrl}" 
-        class="imagePoster lazyFade" 
-        loading="lazy"
-        alt="music cover art"
-        onerror="this.onerror=null; this.src='fallback.jpg'"
-      >
+    const imageElement = document.createElement("img");
+    imageElement.classList.add("imagePoster");
+    imageElement.alt = "music cover art";
+    imageElement.crossOrigin = "anonymous";
+
+    // set src only after successful load (Safari fix)
+    const testImage = new Image();
+    testImage.onload = () => {
+      imageElement.src = testImage.src;
+    };
+    testImage.onerror = () => {
+      // final fallback: guaranteed Safari-safe placeholder
+      imageElement.src =
+        "https://via.placeholder.com/600x600?text=Image+Unavailable";
+    };
+    testImage.src = img;
+
+    songDiv.appendChild(imageElement);
+    songDiv.innerHTML += `
       <h4 class="songName">${songName}</h4>
       <p class="artistName">${artistName}</p>
     `;
@@ -55,7 +68,6 @@ function displaySong(songs) {
     songPreviews.appendChild(songDiv);
   });
 }
-
 
 function shortenText(word, maxLength) {
   return word.length > maxLength ? word.slice(0, maxLength) + "..." : word;
