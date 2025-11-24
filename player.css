@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #121212;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+header {
+  position: sticky;
+  top: 1.5rem;
+  z-index: 999;
+}
+
+/* ==== NAVBAR SECTION ==== */
+.navigation {
+  max-width: 120rem;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2rem;
+  padding: 2rem 3rem;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  margin: 1.5rem auto;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  position: static;
+}
+
+.siteLogo {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #a06bff;
+  text-shadow: 0 2px 12px rgba(132, 71, 255, 0.5);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 0.5rem;
+}
+
+.navLogo {
+  font-size: 2.8rem;
+}
+
+.search {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  width: 500px;
+  /* background-color: red; */
+  padding: 1rem 2rem;
+}
+
+.inputMusic {
+  padding: 1.2rem 4rem;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  width: 70%;
+}
+
+.searchBtn {
+  background: linear-gradient(135deg, #8447ff, #b388ff);
+  border: none;
+  color: #fff;
+  padding: 1.2rem 4rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.searchBtn:hover {
+  transform: translateY(-1.3px);
+  background: linear-gradient(135deg, #9b63ff, #c2a0ff);
+}
+
+.toggleBtn {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.8rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.toggleBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+/* ==== MUSIC CONTAINER ==== */
+.musicPlayerContainer {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3.8rem;
+}
+
+/* ==== SIDEBAR ==== */
+.sideBar {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 2rem;
+  border-radius: 4px;
+}

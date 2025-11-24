@@ -192,12 +192,15 @@ button {
     rgba(255, 255, 255, 0.2),
     rgba(255, 255, 255, 0.05)
   );
-  color: #ddd;
-  text-shadow: 0 0 10px rgba(94, 62, 255, 0.3);
   border: 1px solid #8447ff;
 
   transition: background-color 0.3s ease;
+}
 
+.playerLink {
+  text-decoration: none;
+  color: #ddd;
+  text-shadow: 0 0 10px rgba(94, 62, 255, 0.3);
 }
 
 #ctaListen:hover {
@@ -978,11 +981,11 @@ h3 {
   }
 }
 @keyframes scaleUp {
-	0% {
-		transform: scale(0.5);
-	}
+  0% {
+    transform: scale(0.5);
+  }
 
-	100% {
-		transform: scale(1);
-	}
+  100% {
+    transform: scale(1);
+  }
 }
