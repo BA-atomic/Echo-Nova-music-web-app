@@ -113,14 +113,16 @@ header {
 
 /* ==== MUSIC CONTAINER ==== */
 .musicPlayerContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 350px 1fr;
   gap: 2rem;
-  margin-top: 3.8rem;
+  margin: 3.8rem auto;
 }
 
 /* ==== SIDEBAR ==== */
 .sideBar {
   background-color: rgba(255, 255, 255, 0.08);
   padding: 1.5rem 2rem;
-  border-radius: 4px;
+  border-radius: 2rem;
+  position: fixed;
 }
