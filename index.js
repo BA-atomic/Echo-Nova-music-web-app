@@ -4,7 +4,6 @@ const form = document.querySelector(".newsletterForm");
 const message = document.querySelector(".message");
 const messageContainer = document.querySelector(".messageContainer");
 const input = document.querySelector(".newsletterInput");
-const mediaQuery = window.matchMedia("(max-width: 800px)");
 
 async function getMusic() {
   try {
@@ -29,9 +28,6 @@ function displaySong(songs) {
 
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
     const songName = shortenText(collectionName, 20);
-
-    // Ensure HTTPS
-    const rawImage = artworkUrl100.replace(/^http:\/\//, "https://");
 
     // Safari-safe CORS proxy
     let imageUrl = artworkUrl100.replace("http://", "https://");
@@ -83,12 +79,6 @@ form.addEventListener("submit", function (e) {
   } else {
     displayMessage("Please enter a valid email address.");
     removeClass(message, "errorMessage", "successMessage");
-  }
-});
-
-mediaQuery.addEventListener("change", (e) => {
-  if (e.matches) {
-    console.log("Media query (min-width: 800px) is now active.");
   }
 });
 
