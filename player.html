@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="player.css" />
     <link rel="stylesheet" href="queries.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <title>EchoNova</title>
   </head>
   <body>
@@ -14,8 +20,12 @@
           <i class="fa-solid navLogo fa-lines-leaning"></i>EchoNova
         </div>
         <div class="search">
-            <input placeholder="🔍 Search for Music...." type="text" class="inputMusic">
-            <button class="searchBtn">Search</button>
+          <input
+            placeholder="🔍 Search for Music...."
+            type="text"
+            class="inputMusic"
+          />
+          <button class="searchBtn">Search</button>
         </div>
         <button id="themeToggle" class="toggleBtn">🌞</button>
       </nav>
@@ -25,36 +35,43 @@
       <section class="musicPlayerContainer container">
         <aside>
           <div class="sideBar">
-            <div class="sidebarTop">
-              <div class="logo">🎵✨ EchoNova</div>
-            </div>
-
             <nav class="sidebarNav">
-              <a href="#" class="sidebarLink">🏠 Home</a>
-              <a href="#" class="sidebarLink">🔍 Search</a>
-              <a href="#" class="sidebarLink">📚 Library</a>
-              <a href="#" class="sidebarLink">🎧 Now Playing</a>
-              <a href="#" class="sidebarLink">🔥 Trending</a>
+              <a href="#" class="sidebarLink activeClick"
+                ><i class="fa-solid fa-house"></i> <span>Home</span></a
+              >
+              <a href="#" class="sidebarLink"
+                ><i class="fa-solid fa-book"></i> <span>Library</span></a
+              >
+              <a href="#" class="sidebarLink"
+                ><i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Recently Played</span></a
+              >
+              <a href="#" class="sidebarLink"
+                ><i class="fa-solid fa-fire"></i> <span>Trending</span></a
+              >
             </nav>
 
-            <div class="playlists">
-              <p class="playlistsTitle">🎶 Your Playlists</p>
-              <ul>
-                <li>❤️ Favorites</li>
-                <li>💪 Workout</li>
-                <li>😎 Chill</li>
-                <li>🎉 Party</li>
-                <li>🌙 Night Vibes</li>
-                <li>🛌 Relax</li>
+            <div class="genres">
+              <p class="genresTitle">Genres</p>
+              <ul class="genreLists">
+                <li class="genreList">All</li>
+                <li class="genreList">Afrobeats</li>
+                <li class="genreList">Rock</li>
+                <li class="genreList">Jazz</li>
+                <li class="genreList">Pop</li>
+                <li class="genreList">RnB</li>
+                <li class="genreList">Reggae</li>
+                <li class="genreList">Pop</li>
               </ul>
             </div>
           </div>
         </aside>
 
-        <div class="musicCollections"></div>
-
-        <div class="musicPlayer"></div>
+        <div class="musicCollection"></div>
       </section>
     </main>
+
+    <script src="helper.js"></script>
+    <script src="player.js"></script>
   </body>
 </html>
