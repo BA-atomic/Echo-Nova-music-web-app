@@ -3,12 +3,11 @@ async function getMusic(searchWord, divToappend, limit) {
     const response = await axios.get("https://itunes.apple.com/search?", {
       params: { term: searchWord, media: "music", limit: limit },
     });
-      const songs = response.data.results;
-      console.log(songs)
+    const songs = response.data.results;
     displaySong(songs, divToappend);
   } catch (error) {
     divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
-      divToappend.style.justifyContent = "center";
+    divToappend.style.justifyContent = "center";
   }
 }
 
@@ -19,7 +18,7 @@ function displaySong(songs, divToappend) {
   }
 
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
-      const songName = shortenText(collectionName, 10);
+    const songName = shortenText(collectionName, 10);
 
     // Safari-safe CORS proxy
     let imageUrl = artworkUrl100.replace("http://", "https://");

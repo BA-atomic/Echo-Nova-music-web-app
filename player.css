@@ -107,7 +107,7 @@ header {
 .musicPlayerContainer {
   display: grid;
   grid-template-columns: 350px 1fr;
-  gap: 2rem;
+  gap: 2.6rem;
   margin: 3.8rem auto;
 }
 
@@ -186,11 +186,12 @@ header {
 
 .songContainer {
   width: 10rem;
-  height: 10rem;
+  height: auto;
 }
 
 .imagePoster {
   width: 100%;
+  border-radius: 4px;
 }
 
 /* ==== MUSIC COLLECTION SECTION ==== */
@@ -219,15 +220,22 @@ header {
   color: #fff;
 }
 
-.trendingCollection, .streetCollection, .artistsCollection {
+.trendingCollection,
+.streetCollection,
+.artistsCollection,
+.chillCollection,
+.freshCollection {
   display: flex;
   justify-content: space-between;
-  gap: 3rem;
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
+}
+
+.freshCollection {
+  margin-bottom: 0;
 }
 
 h3 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   color: #f7f4ff;
   margin-bottom: 1.2rem;
 }

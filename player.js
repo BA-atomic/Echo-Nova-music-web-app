@@ -1,17 +1,11 @@
 const trendingCollection = document.querySelector(".trendingCollection");
 const streetCollection = document.querySelector(".streetCollection");
 const artistsCollection = document.querySelector(".artistsCollection");
+const chillCollection = document.querySelector(".chillCollection");
+const freshCollection = document.querySelector(".freshCollection");
 
 const musicSearchPool = {
   trending: ["nigeria top music", "new release afrobeat"],
-
-  afrobeats: [
-    "afrobeats",
-    "afrobeats new",
-    "afrobeats nigeria",
-    "afrobeats hits",
-    "lagos afrobeats",
-  ],
 
   street: [
     "street pop nigeria",
@@ -36,13 +30,7 @@ const musicSearchPool = {
 
   chill: ["naija chill", "relax naija", "soft afrobeats"],
 
-  fresh: [
-    "new music nigeria",
-    "latest naija",
-    "fresh naija music",
-    "new afrobeats 2025",
-    "naija debut",
-  ],
+  fresh: ["fresh 2025 afrobeats", "new afrobeats 2025"],
 };
 
 function pickRandomWord(category) {
@@ -53,6 +41,8 @@ function pickRandomWord(category) {
   return word[randomIndex];
 }
 
-getMusic(pickRandomWord("trending"), trendingCollection, 5);
-getMusic(pickRandomWord("street"), streetCollection, 5);
-getMusic(pickRandomWord("artists"), artistsCollection, 5);
+getMusic(pickRandomWord("trending"), trendingCollection, 6);
+getMusic(pickRandomWord("street"), streetCollection, 6);
+getMusic(pickRandomWord("artists"), artistsCollection, 6);
+getMusic(pickRandomWord("chill"), chillCollection, 6);
+getMusic(pickRandomWord("fresh"), freshCollection, 6);

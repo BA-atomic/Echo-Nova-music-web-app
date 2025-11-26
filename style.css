@@ -341,6 +341,7 @@ h3 {
 
 .songContainer {
   width: 25rem;
+  height: auto;
 }
 
 .imagePoster {
