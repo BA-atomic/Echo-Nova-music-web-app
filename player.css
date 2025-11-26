@@ -113,9 +113,13 @@ header {
 
 /* ==== SIDEBAR ==== */
 .sideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.08);
   padding: 2rem 1.5rem;
   border-radius: 2rem;
+  height: 100%;
 }
 
 .sidebarNav {
@@ -147,6 +151,7 @@ header {
 
 .genres {
   margin-top: 3rem;
+  align-items: end;
 }
 
 .genresTitle {
@@ -180,9 +185,45 @@ header {
 }
 
 .songContainer {
-  width: 25rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .imagePoster {
   width: 100%;
 }
+
+/* ==== MUSIC COLLECTION SECTION ==== */
+.musicCollectionContainer {
+}
+
+.musicCollectionTopBox {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #8447ff, #5a2d9f);
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+}
+
+.musicCollectionHeaderText {
+  font-size: 4rem;
+  color: #f7f4ff;
+  margin-bottom: 1.2rem;
+}
+
+.musicCollectionHeaderSubText {
+  font-size: 1.4rem;
+  color: #c8bfff;
+}
+
+.headerIcon {
+  font-size: 6.4rem;
+  color: #fff;
+}
+
+.musicCollection {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
