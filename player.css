@@ -194,15 +194,13 @@ header {
 }
 
 /* ==== MUSIC COLLECTION SECTION ==== */
-.musicCollectionContainer {
-}
-
 .musicCollectionTopBox {
   display: flex;
   justify-content: space-between;
   background: linear-gradient(135deg, #8447ff, #5a2d9f);
   padding: 3rem 2rem;
   border-radius: 2rem;
+  margin-bottom: 1.8rem;
 }
 
 .musicCollectionHeaderText {
@@ -221,9 +219,34 @@ header {
   color: #fff;
 }
 
-.musicCollection {
+.trendingCollection, .streetCollection, .artistsCollection {
   display: flex;
   justify-content: space-between;
   gap: 3rem;
+  margin-bottom: 8rem;
 }
 
+h3 {
+  font-size: 1.8rem;
+  color: #f7f4ff;
+  margin-bottom: 1.2rem;
+}
+
+.songName {
+  color: #ddd;
+  font-size: 1.4rem;
+  margin-bottom: 1px;
+}
+
+.artistName {
+  color: #999;
+  font-size: 1.2rem;
+}
+
+.errormessage {
+  color: #999;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  justify-self: center;
+  padding: 4rem;
+}

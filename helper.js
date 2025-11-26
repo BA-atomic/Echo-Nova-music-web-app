@@ -3,7 +3,8 @@ async function getMusic(searchWord, divToappend, limit) {
     const response = await axios.get("https://itunes.apple.com/search?", {
       params: { term: searchWord, media: "music", limit: limit },
     });
-    const songs = response.data.results;
+      const songs = response.data.results;
+      console.log(songs)
     displaySong(songs, divToappend);
   } catch (error) {
     divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
@@ -13,12 +14,12 @@ async function getMusic(searchWord, divToappend, limit) {
 
 function displaySong(songs, divToappend) {
   if (songs.length === 0) {
-    divToappend.innerHTML = `<p>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
+    divToappend.innerHTML = `<p class="errormessage>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
     return;
   }
 
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
-    const songName = shortenText(collectionName, 20);
+      const songName = shortenText(collectionName, 10);
 
     // Safari-safe CORS proxy
     let imageUrl = artworkUrl100.replace("http://", "https://");
@@ -44,7 +45,7 @@ function displaySong(songs, divToappend) {
         alt="music cover art"
       >
       <h4 class="songName">${songName}</h4>
-      <p class="artistName">${artistName}</p>
+      <p class="artistName">${shortenText(artistName, 7)}</p>
     `;
 
     divToappend.appendChild(songDiv);
