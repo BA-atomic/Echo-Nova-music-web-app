@@ -92,6 +92,58 @@
           </div>
         </div>
       </section>
+
+       <div class="playerContainer container">
+        <div class="nowPlaying">
+          <img
+            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+            alt="Now playing"
+            id="currentTrackImg"
+          />
+          <div class="trackDetails">
+            <h3 id="currentTrackTitle">Select a song</h3>
+            <p id="currentTrackArtist">Artist</p>
+          </div>
+          <button class="controlBtn" id="likeBtn">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+
+        <div class="playerControls">
+          <div class="controlButtons">
+            <button class="controlBtn" id="shuffle">
+              <i class="fas fa-random"></i>
+            </button>
+            <button class="controlBtn" id="prev">
+              <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="controlBtn playPause" id="playPause">
+              <i class="fas fa-play"></i>
+            </button>
+            <button class="controlBtn" id="next">
+              <i class="fas fa-step-forward"></i>
+            </button>
+            <button class="controlBtn" id="repeat">
+              <i class="fas fa-redo"></i>
+            </button>
+          </div>
+          <div class="progressContainer">
+            <span class="time" id="currentTime">0:00</span>
+            <div class="progressBar" id="progressBar">
+              <div class="progress" id="progress"></div>
+            </div>
+            <span class="time" id="duration">0:00</span>
+          </div>
+        </div>
+
+        <div class="volumeControls">
+          <button class="controlBtn"><i class="fas fa-volume-up"></i></button>
+          <div class="volumeBar" id="volumeBar">
+            <div class="volumeLevel" id="volumeLevel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     </main>
 
     <script src="helper.js"></script>
