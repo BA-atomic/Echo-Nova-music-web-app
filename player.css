@@ -60,6 +60,7 @@ header {
   display: flex;
   gap: 2rem;
   width: 500px;
+  position: relative;
 }
 
 .inputMusic {
@@ -187,6 +188,7 @@ header {
 .songContainer {
   width: 10rem;
   height: auto;
+  cursor: pointer;
 }
 
 .imagePoster {
@@ -199,7 +201,7 @@ header {
   display: flex;
   justify-content: space-between;
   background: linear-gradient(135deg, #8447ff, #5a2d9f);
-  padding: 3rem 2rem;
+  padding: 4rem 3rem;
   border-radius: 2rem;
   margin-bottom: 1.8rem;
 }
@@ -243,7 +245,6 @@ h3 {
 .songName {
   color: #ddd;
   font-size: 1.4rem;
-  margin-bottom: 1px;
 }
 
 .artistName {
@@ -402,4 +403,122 @@ h3 {
   background: linear-gradient(90deg, #6a30d9, #a066ff);
   border-radius: 10px;
   width: 70%;
+}
+
+/* === DROPDOWN SECTION === */
+.dropDownBox {
+  position: absolute;
+  height: 30rem;
+  width: 70%;
+  top: 45px;
+}
+
+.dropDown {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #121212;
+
+  border-radius: 8px;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(-8px);
+
+  transition: opacity 0.35s ease, filter 0.35s ease, transform 0.35s ease;
+
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(14px);
+}
+
+.closeDropIcon {
+  position: absolute;
+  right: 17rem;
+  top: 180%;
+  font-size: 1.4rem;
+  color: #f1f1f1;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 1000;
+}
+.closeDropIcon.show {
+  opacity: 1;
+}
+
+.dropDown.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.dropDown .songContainer {
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: itemSlide 0.35s ease forwards;
+}
+
+@keyframes itemSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropDown .songContainer:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.dropDown .songContainer:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.dropDown .songContainer:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.dropDown .songContainer:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.dropDown .songContainer:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.dropDown .songContainer:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.dropDown::-webkit-scrollbar {
+  display: none;
+}
+
+.dropDown img {
+  width: 5rem;
+  cursor: pointer;
+}
+
+.dropDown h4 {
+  font-size: 1.2rem;
+}
+
+.dropDown p {
+  font-size: 0.85rem;
+}
+
+.dropDown .songContainer {
+  display: flex;
+  gap: 0.85rem;
+  width: auto;
+}
+
+.songDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: center;
 }

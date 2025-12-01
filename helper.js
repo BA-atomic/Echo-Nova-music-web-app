@@ -1,24 +1,31 @@
-async function getMusic(searchWord, divToappend, limit) {
+async function getMusic(
+  searchWord,
+  divToappend,
+  innerDiv,
+  limit,
+  songNameLimit
+) {
   try {
     const response = await axios.get("https://itunes.apple.com/search?", {
       params: { term: searchWord, media: "music", limit: limit },
     });
     const songs = response.data.results;
-    displaySong(songs, divToappend);
+    displaySong(songs, divToappend, innerDiv, songNameLimit);
   } catch (error) {
     divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
     divToappend.style.justifyContent = "center";
+    console.log(error);
   }
 }
 
-function displaySong(songs, divToappend) {
+function displaySong(songs, divToappend, innerDiv, songNameLimit) {
   if (songs.length === 0) {
     divToappend.innerHTML = `<p class="errormessage>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
     return;
   }
 
   songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
-    const songName = shortenText(collectionName, 10);
+    const songName = shortenText(collectionName, songNameLimit);
 
     // Safari-safe CORS proxy
     let imageUrl = artworkUrl100.replace("http://", "https://");
@@ -33,21 +40,23 @@ function displaySong(songs, divToappend) {
     imageUrl += `?v=${Date.now()}`;
 
     // Song card
-    const songDiv = document.createElement("div");
-    songDiv.classList.add("songContainer");
+    innerDiv = document.createElement("div");
+    innerDiv.classList.add("songContainer");
 
-    songDiv.innerHTML = `
+    innerDiv.innerHTML = `
       <img 
         src="${imageUrl}" 
         class="imagePoster" 
         loading="lazy"
         alt="music cover art"
       >
-      <h4 class="songName">${songName}</h4>
+      <div class="songDetails">
+        <h4 class="songName">${songName}</h4>
       <p class="artistName">${shortenText(artistName, 7)}</p>
+      </div>
     `;
 
-    divToappend.appendChild(songDiv);
+    divToappend.appendChild(innerDiv);
   });
 }
 
