@@ -59,8 +59,4 @@ searchBtn.addEventListener("click", (e) => {
 
   dropDown.classList.add("show");
   closeDropIcon.classList.add("show");
-
-  setTimeout(() => {
-    dropDown.classList.remove("hide");
-  }, 250);
 });
