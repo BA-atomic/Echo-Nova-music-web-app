@@ -60,3 +60,8 @@ searchBtn.addEventListener("click", (e) => {
   dropDown.classList.add("show");
   closeDropIcon.classList.add("show");
 });
+
+closeDropIcon.addEventListener("click", (e) => {
+  dropDown.classList.remove("show");
+  closeDropIcon.classList.remove("show");
+});
