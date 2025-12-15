@@ -12,7 +12,6 @@ async function getMusic(
       params: { term: searchWord, media: "music", limit: limit },
     });
     const songs = response.data.results;
-    console.log(songs)
     displaySong(songs, divToappend, innerDiv, songNameLimit);
   } catch (error) {
     divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
