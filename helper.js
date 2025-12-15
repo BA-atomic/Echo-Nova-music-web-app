@@ -1,3 +1,5 @@
+const audioPlayer = new Audio();
+
 async function getMusic(
   searchWord,
   divToappend,
@@ -10,11 +12,11 @@ async function getMusic(
       params: { term: searchWord, media: "music", limit: limit },
     });
     const songs = response.data.results;
+    console.log(songs)
     displaySong(songs, divToappend, innerDiv, songNameLimit);
   } catch (error) {
     divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
     divToappend.style.justifyContent = "center";
-    console.log(error);
   }
 }
 
@@ -24,7 +26,7 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
     return;
   }
 
-  songs.forEach(({ collectionName, artistName, artworkUrl100 }) => {
+  songs.forEach(({ collectionName, artistName, artworkUrl100, previewUrl }) => {
     const songName = shortenText(collectionName, songNameLimit);
 
     // Safari-safe CORS proxy
@@ -43,6 +45,11 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
     innerDiv = document.createElement("div");
     innerDiv.classList.add("songContainer");
 
+    innerDiv.dataset.collectionName = songName;
+    innerDiv.dataset.artistName = artistName;
+    innerDiv.dataset.imageUrl = imageUrl;
+    innerDiv.dataset.songUrl = previewUrl;
+
     innerDiv.innerHTML = `
       <img 
         src="${imageUrl}" 
@@ -55,6 +62,17 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
       <p class="artistName">${shortenText(artistName, 7)}</p>
       </div>
     `;
+
+    innerDiv.addEventListener("click", (e) => {
+      const divClick = e.currentTarget;
+      playSong(divClick);
+    });
+
+    function playSong(parentElement) {
+      audioPlayer.src = parentElement.dataset.songUrl;
+      audioPlayer.load();
+      audioPlayer.play();
+    }
 
     divToappend.appendChild(innerDiv);
   });

@@ -6,12 +6,12 @@ const freshCollection = document.querySelector(".freshCollection");
 const input = document.querySelector(".inputMusic");
 const searchBtn = document.querySelector(".searchBtn");
 const dropDown = document.querySelector(".dropDown");
-const songDiv = document.querySelector(".songDiv");
+const songDiv = document.querySelectorAll(".songDiv");
 const dropDownDiv = document.querySelector(".dropDownDiv");
 const closeDropIcon = document.querySelector(".closeDropIcon");
 
 const musicSearchPool = {
-  trending: ["nigeria top music", "new release afrobeat"],
+  trending: ["nigeria top music", "new release afrobeat", "trending"],
 
   street: [
     "street pop nigeria",
@@ -65,3 +65,5 @@ closeDropIcon.addEventListener("click", (e) => {
   dropDown.classList.remove("show");
   closeDropIcon.classList.remove("show");
 });
+
+
