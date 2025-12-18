@@ -1,5 +1,3 @@
-const audioPlayer = new Audio();
-
 async function getMusic(
   searchWord,
   divToappend,
@@ -66,12 +64,6 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
       const divClick = e.currentTarget;
       playSong(divClick);
     });
-
-    function playSong(parentElement) {
-      audioPlayer.src = parentElement.dataset.songUrl;
-      audioPlayer.load();
-      audioPlayer.play();
-    }
 
     divToappend.appendChild(innerDiv);
   });

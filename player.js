@@ -9,6 +9,9 @@ const dropDown = document.querySelector(".dropDown");
 const songDiv = document.querySelectorAll(".songDiv");
 const dropDownDiv = document.querySelector(".dropDownDiv");
 const closeDropIcon = document.querySelector(".closeDropIcon");
+const playBtn = document.querySelector(".playPause");
+
+const audioPlayer = new Audio();
 
 const musicSearchPool = {
   trending: ["nigeria top music", "new release afrobeat", "trending"],
@@ -66,4 +69,28 @@ closeDropIcon.addEventListener("click", (e) => {
   closeDropIcon.classList.remove("show");
 });
 
+function playSong(parentElement) {
+  audioPlayer.src = parentElement.dataset.songUrl;
+  audioPlayer.load();
+  PlayTheSong();
+}
 
+function PlayTheSong() {
+  audioPlayer.play();
+  playBtn.innerHTML = "";
+  playBtn.innerHTML = `
+  <i class="fa-solid fa-pause"></i>
+  `;
+}
+
+playBtn.addEventListener("click", (e) => {
+  if (audioPlayer.paused) {
+    PlayTheSong();
+  } else {
+    audioPlayer.pause();
+    playBtn.innerHTML = "";
+    playBtn.innerHTML = `
+  <i class="fas fa-play"></i>
+  `;
+  }
+});
