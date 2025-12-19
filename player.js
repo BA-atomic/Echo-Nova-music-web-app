@@ -12,6 +12,7 @@ const closeDropIcon = document.querySelector(".closeDropIcon");
 const playBtn = document.querySelector(".playPause");
 const currentSongTime = document.querySelector("#currentTime");
 const songDuration = document.querySelector("#duration");
+const progress = document.querySelector(".progress");
 
 const audioPlayer = new Audio();
 
@@ -102,6 +103,11 @@ audioPlayer.addEventListener("timeupdate", (e) => {
   songDuration.textContent = formatTime(
     audioPlayer.duration - audioPlayer.currentTime
   );
+
+  if (audioPlayer.duration) {
+    songLength = (audioPlayer.currentTime / audioPlayer.duration) * 100
+    progress.style.width = `${songLength}%`
+  }
 });
 
 function formatTime(time) {

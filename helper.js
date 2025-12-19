@@ -63,6 +63,7 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
     innerDiv.addEventListener("click", (e) => {
       const divClick = e.currentTarget;
       playSong(divClick);
+      progress.style.width = `0%`;
     });
 
     divToappend.appendChild(innerDiv);
