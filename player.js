@@ -10,6 +10,8 @@ const songDiv = document.querySelectorAll(".songDiv");
 const dropDownDiv = document.querySelector(".dropDownDiv");
 const closeDropIcon = document.querySelector(".closeDropIcon");
 const playBtn = document.querySelector(".playPause");
+const currentSongTime = document.querySelector("#currentTime");
+const songDuration = document.querySelector("#duration");
 
 const audioPlayer = new Audio();
 
@@ -94,3 +96,18 @@ playBtn.addEventListener("click", (e) => {
   `;
   }
 });
+
+audioPlayer.addEventListener("timeupdate", (e) => {
+  currentSongTime.textContent = formatTime(audioPlayer.currentTime);
+  songDuration.textContent = formatTime(
+    audioPlayer.duration - audioPlayer.currentTime
+  );
+});
+
+function formatTime(time) {
+  if (!Number.isFinite(time) || time < 0) return `0:00`;
+  const mins = Math.floor(time / 60);
+  const secs = Math.floor(time % 60);
+
+  return secs < 10 ? `${mins}:0${secs}` : `${mins}:${secs}`;
+}
