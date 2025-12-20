@@ -12,7 +12,7 @@ const closeDropIcon = document.querySelector(".closeDropIcon");
 const playBtn = document.querySelector(".playPause");
 const currentSongTime = document.querySelector("#currentTime");
 const songDuration = document.querySelector("#duration");
-const progress = document.querySelector(".progress");
+const progressBar = document.querySelector(".progressBar");
 
 const audioPlayer = new Audio();
 
@@ -88,7 +88,17 @@ function PlayTheSong() {
 
 playBtn.addEventListener("click", (e) => {
   if (audioPlayer.paused) {
-    PlayTheSong();
+    audioPlayer
+      .play()
+      .then(() => {
+        playBtn.textContent = "⏸";
+      })
+      .catch((error) => {
+        console.log("❌Play failed:", error);
+        displayError(
+          "Couldn't play audio. Check your connection and try again."
+        );
+      });
   } else {
     audioPlayer.pause();
     playBtn.innerHTML = "";
@@ -105,8 +115,8 @@ audioPlayer.addEventListener("timeupdate", (e) => {
   );
 
   if (audioPlayer.duration) {
-    songLength = (audioPlayer.currentTime / audioPlayer.duration) * 100
-    progress.style.width = `${songLength}%`
+    songLength = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progress.style.width = `${songLength}%`;
   }
 });
 
@@ -117,3 +127,9 @@ function formatTime(time) {
 
   return secs < 10 ? `${mins}:0${secs}` : `${mins}:${secs}`;
 }
+
+progressBar.addEventListener("click", (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const percent = (e.clientX - rect.left) / rect.width;
+  audioPlayer.currentTime = percent * audioPlayer.duration;
+});
