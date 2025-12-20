@@ -13,6 +13,7 @@ const playBtn = document.querySelector(".playPause");
 const currentSongTime = document.querySelector("#currentTime");
 const songDuration = document.querySelector("#duration");
 const progressBar = document.querySelector(".progressBar");
+const progress = document.querySelector(".progress");
 
 const audioPlayer = new Audio();
 
@@ -93,12 +94,7 @@ playBtn.addEventListener("click", (e) => {
       .then(() => {
         playBtn.textContent = "⏸";
       })
-      .catch((error) => {
-        console.log("❌Play failed:", error);
-        displayError(
-          "Couldn't play audio. Check your connection and try again."
-        );
-      });
+      .catch((error) => {});
   } else {
     audioPlayer.pause();
     playBtn.innerHTML = "";
@@ -114,7 +110,7 @@ audioPlayer.addEventListener("timeupdate", (e) => {
     audioPlayer.duration - audioPlayer.currentTime
   );
 
-  if (audioPlayer.duration) {
+  if (!isDragging && audioPlayer.duration) {
     songLength = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     progress.style.width = `${songLength}%`;
   }
@@ -131,5 +127,44 @@ function formatTime(time) {
 progressBar.addEventListener("click", (e) => {
   const rect = e.currentTarget.getBoundingClientRect();
   const percent = (e.clientX - rect.left) / rect.width;
-  audioPlayer.currentTime = percent * audioPlayer.duration;
+  if (Number.isFinite(audioPlayer.duration)) {
+    audioPlayer.currentTime = percent * audioPlayer.duration;
+  }
 });
+
+let isDragging = false;
+let wasPlaying = false;
+progressBar.addEventListener("mousedown", (e) => {
+  if (!Number.isFinite(audioPlayer.duration)) return;
+  wasPlaying = !audioPlayer.paused;
+  audioPlayer.pause();
+  isDragging = true;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  const rect = progressBar.getBoundingClientRect();
+  const percent = (e.clientX - rect.left) / rect.width;
+  const clamped = Math.max(0, Math.min(1, percent)); //No matter what, keep the value between 0 and 1.
+  if (Number.isFinite(audioPlayer.duration)) {
+    audioPlayer.currentTime = clamped * audioPlayer.duration;
+    progress.style.width = clamped * 100 + "%";
+  }
+});
+
+document.addEventListener("mouseup", (e) => {
+  if (!isDragging) return;
+
+  isDragging = false;
+  if (wasPlaying) {
+    audioPlayer.play();
+  }
+});
+
+// How to pause audio while dragging and resume on release
+
+// How to add a draggable thumb/handle
+
+// How to support touch drag cleanly
+
+// How to prevent conflicts with timeupdate
