@@ -59,20 +59,6 @@ getMusic(pickRandomWord("artists"), artistsCollection, songDiv, 6, 10);
 getMusic(pickRandomWord("chill"), chillCollection, songDiv, 6, 10);
 getMusic(pickRandomWord("fresh"), freshCollection, songDiv, 6, 10);
 
-searchBtn.addEventListener("click", (e) => {
-  dropDown.innerHTML = "";
-  const searchTerm = input.value.trim();
-  getMusic(searchTerm, dropDown, dropDownDiv, 8, 20);
-
-  dropDown.classList.add("show");
-  closeDropIcon.classList.add("show");
-});
-
-closeDropIcon.addEventListener("click", (e) => {
-  dropDown.classList.remove("show");
-  closeDropIcon.classList.remove("show");
-});
-
 function playSong(parentElement) {
   audioPlayer.src = parentElement.dataset.songUrl;
   audioPlayer.load();
@@ -86,6 +72,38 @@ function PlayTheSong() {
   <i class="fa-solid fa-pause"></i>
   `;
 }
+
+function formatTime(time) {
+  if (!Number.isFinite(time) || time < 0) return `0:00`;
+  const mins = Math.floor(time / 60);
+  const secs = Math.floor(time % 60);
+
+  return secs < 10 ? `${mins}:0${secs}` : `${mins}:${secs}`;
+}
+
+function updateProgress(clientX) {
+  const rect = progressBar.getBoundingClientRect();
+  const percent = (clientX - rect.left) / rect.width;
+  const clamped = Math.max(0, Math.min(1, percent)); //No matter what, keep the value between 0 and 1.
+  if (Number.isFinite(audioPlayer.duration)) {
+    audioPlayer.currentTime = clamped * audioPlayer.duration;
+    progress.style.width = clamped * 100 + "%";
+  }
+}
+
+searchBtn.addEventListener("click", (e) => {
+  dropDown.innerHTML = "";
+  const searchTerm = input.value.trim();
+  getMusic(searchTerm, dropDown, dropDownDiv, 8, 20);
+
+  dropDown.classList.add("show");
+  closeDropIcon.classList.add("show");
+});
+
+closeDropIcon.addEventListener("click", (e) => {
+  dropDown.classList.remove("show");
+  closeDropIcon.classList.remove("show");
+});
 
 playBtn.addEventListener("click", (e) => {
   if (audioPlayer.paused) {
@@ -115,14 +133,6 @@ audioPlayer.addEventListener("timeupdate", (e) => {
     progress.style.width = `${songLength}%`;
   }
 });
-
-function formatTime(time) {
-  if (!Number.isFinite(time) || time < 0) return `0:00`;
-  const mins = Math.floor(time / 60);
-  const secs = Math.floor(time % 60);
-
-  return secs < 10 ? `${mins}:0${secs}` : `${mins}:${secs}`;
-}
 
 progressBar.addEventListener("click", (e) => {
   if (isDragging) return; //Disable click while dragging
@@ -190,13 +200,3 @@ progressBar.addEventListener("touchend", (e) => {
     audioPlayer.play();
   }
 });
-
-function updateProgress(clientX) {
-  const rect = progressBar.getBoundingClientRect();
-  const percent = (clientX - rect.left) / rect.width;
-  const clamped = Math.max(0, Math.min(1, percent)); //No matter what, keep the value between 0 and 1.
-  if (Number.isFinite(audioPlayer.duration)) {
-    audioPlayer.currentTime = clamped * audioPlayer.duration;
-    progress.style.width = clamped * 100 + "%";
-  }
-}
