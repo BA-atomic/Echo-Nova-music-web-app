@@ -14,6 +14,8 @@ const currentSongTime = document.querySelector("#currentTime");
 const songDuration = document.querySelector("#duration");
 const progressBar = document.querySelector(".progressBar");
 const progress = document.querySelector(".progress");
+const volumeBar = document.querySelector(".volumeBar");
+const volumeLevel = document.querySelector(".volumeLevel");
 
 const audioPlayer = new Audio();
 
@@ -89,6 +91,15 @@ function updateProgress(clientX) {
     audioPlayer.currentTime = clamped * audioPlayer.duration;
     progress.style.width = clamped * 100 + "%";
   }
+}
+
+function seek(seekX) {
+  const rect = volumeBar.getBoundingClientRect();
+  const percent = (seekX - rect.left) / rect.width;
+  const clamped = Math.max(0, Math.min(1, percent)); //No matter what, keep the value between 0 and 1.
+
+  volumeLevel.style.width = clamped * 100 + "%";
+  audioPlayer.volume = clamped;
 }
 
 searchBtn.addEventListener("click", (e) => {
@@ -199,4 +210,53 @@ progressBar.addEventListener("touchend", (e) => {
   if (wasPlaying) {
     audioPlayer.play();
   }
+});
+
+let seekDragging = false;
+volumeBar.addEventListener("click", (e) => {
+  if (seekDragging) return;
+  seek(e.clientX);
+});
+
+volumeBar.addEventListener("mousedown", (e) => {
+  seekDragging = true;
+
+  seek(e.clientX);
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!seekDragging) return;
+  seek(e.clientX);
+});
+
+document.addEventListener("mouseup", (e) => {
+  seekDragging = false;
+});
+
+volumeBar.addEventListener(
+  "touchstart",
+  (e) => {
+    if (isDragging) return;
+    seekDragging = true;
+    e.preventDefault();
+    seek(e.touches[0].clientX);
+  },
+  { passive: false }
+);
+
+volumeBar.addEventListener(
+  "touchmove",
+  (e) => {
+    if (!seekDragging) return;
+    e.preventDefault();
+
+    seek(e.touches[0].clientX);
+  },
+  { passive: false }
+);
+
+volumeBar.addEventListener("touchend", (e) => {
+  if (!seekDragging) return;
+
+  seekDragging = false;
 });
