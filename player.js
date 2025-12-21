@@ -125,6 +125,7 @@ function formatTime(time) {
 }
 
 progressBar.addEventListener("click", (e) => {
+  if (isDragging) return; //Disable click while dragging
   const rect = e.currentTarget.getBoundingClientRect();
   const percent = (e.clientX - rect.left) / rect.width;
   if (Number.isFinite(audioPlayer.duration)) {
@@ -139,17 +140,14 @@ progressBar.addEventListener("mousedown", (e) => {
   wasPlaying = !audioPlayer.paused;
   audioPlayer.pause();
   isDragging = true;
+
+  updateProgress(e.clientX);
 });
 
 document.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
-  const rect = progressBar.getBoundingClientRect();
-  const percent = (e.clientX - rect.left) / rect.width;
-  const clamped = Math.max(0, Math.min(1, percent)); //No matter what, keep the value between 0 and 1.
-  if (Number.isFinite(audioPlayer.duration)) {
-    audioPlayer.currentTime = clamped * audioPlayer.duration;
-    progress.style.width = clamped * 100 + "%";
-  }
+
+  updateProgress(e.clientX);
 });
 
 document.addEventListener("mouseup", (e) => {
@@ -161,10 +159,44 @@ document.addEventListener("mouseup", (e) => {
   }
 });
 
-// How to pause audio while dragging and resume on release
+progressBar.addEventListener(
+  "touchstart",
+  (e) => {
+    e.preventDefault();
+    if (!Number.isFinite(audioPlayer.duration)) return;
+    wasPlaying = !audioPlayer.paused;
+    audioPlayer.pause();
+    isDragging = true;
+  },
+  { passive: false }
+);
 
-// How to add a draggable thumb/handle
+progressBar.addEventListener(
+  "touchmove",
+  (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
 
-// How to support touch drag cleanly
+    updateProgress(e.touches[0].clientX);
+  },
+  { passive: false }
+);
 
-// How to prevent conflicts with timeupdate
+progressBar.addEventListener("touchend", (e) => {
+  if (!isDragging) return;
+
+  isDragging = false;
+  if (wasPlaying) {
+    audioPlayer.play();
+  }
+});
+
+function updateProgress(clientX) {
+  const rect = progressBar.getBoundingClientRect();
+  const percent = (clientX - rect.left) / rect.width;
+  const clamped = Math.max(0, Math.min(1, percent)); //No matter what, keep the value between 0 and 1.
+  if (Number.isFinite(audioPlayer.duration)) {
+    audioPlayer.currentTime = clamped * audioPlayer.duration;
+    progress.style.width = clamped * 100 + "%";
+  }
+}
