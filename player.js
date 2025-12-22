@@ -16,6 +16,9 @@ const progressBar = document.querySelector(".progressBar");
 const progress = document.querySelector(".progress");
 const volumeBar = document.querySelector(".volumeBar");
 const volumeLevel = document.querySelector(".volumeLevel");
+const songPoster = document.querySelector("#currentTrackImg");
+const currentTrackTitle = document.querySelector("#currentTrackTitle");
+const currentTrackArtist = document.querySelector("#currentTrackArtist");
 
 const audioPlayer = new Audio();
 
@@ -123,7 +126,9 @@ playBtn.addEventListener("click", (e) => {
       .then(() => {
         playBtn.textContent = "⏸";
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   } else {
     audioPlayer.pause();
     playBtn.innerHTML = "";

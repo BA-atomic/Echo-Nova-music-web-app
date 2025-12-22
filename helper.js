@@ -64,6 +64,9 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
       const divClick = e.currentTarget;
       playSong(divClick);
       progress.style.width = `0%`;
+      songPoster.src = imageUrl;
+      currentTrackTitle.textContent = songName;
+      currentTrackArtist.textContent = artistName;
     });
 
     divToappend.appendChild(innerDiv);
