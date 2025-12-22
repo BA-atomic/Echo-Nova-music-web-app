@@ -62,7 +62,18 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
 
     innerDiv.addEventListener("click", (e) => {
       const divClick = e.currentTarget;
+      if (likeBtn.classList.contains("activeLike")) {
+        likeBtn.classList.remove("activeLike");
+      }
       playSong(divClick);
+
+      favoritePlayList = {
+        title: songName,
+        artist: artistName,
+        url: previewUrl,
+        cover: imageUrl,
+      };
+
       progress.style.width = `0%`;
       songPoster.src = imageUrl;
       currentTrackTitle.textContent = songName;
@@ -72,6 +83,41 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
     divToappend.appendChild(innerDiv);
   });
 }
+
+let favoritePlayList = [];
+likeBtn.addEventListener("click", (e) => {
+  if (!favoritePlayList.url) return;
+  likeBtn.classList.toggle("activeLike");
+
+  favDiv = document.createElement("div");
+  favDiv.classList.add("favDivContainer");
+
+  favDiv.dataset.url = favoritePlayList.url;
+  favDiv.dataset.cover = favoritePlayList.cover;
+  favDiv.dataset.title = favoritePlayList.title;
+  favDiv.dataset.artist = favoritePlayList.artist;
+
+  favDiv.innerHTML = `
+  <img src="${favoritePlayList.cover}" class="favDivImage"/>
+<div class="faveSongDetails">
+<p class="faveTitle">${favoritePlayList.title}</p>
+<p class="faveArtist">${favoritePlayList.artist}</p>
+</div>
+  `;
+
+  favDiv.addEventListener("click", (e) => {
+    const divClick = e.currentTarget.dataset;
+    audioPlayer.src = divClick.url;
+    audioPlayer.load();
+    PlayTheSong();
+
+    songPoster.src = divClick.cover;
+    currentTrackTitle.textContent = divClick.title;
+    currentTrackArtist.textContent = divClick.artist;
+  });
+
+  favoriteList.appendChild(favDiv);
+});
 
 function shortenText(word, maxLength) {
   return word.length > maxLength ? word.slice(0, maxLength) + "..." : word;

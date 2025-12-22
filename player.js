@@ -19,6 +19,8 @@ const volumeLevel = document.querySelector(".volumeLevel");
 const songPoster = document.querySelector("#currentTrackImg");
 const currentTrackTitle = document.querySelector("#currentTrackTitle");
 const currentTrackArtist = document.querySelector("#currentTrackArtist");
+const likeBtn = document.querySelector(".favorite");
+const favoriteList = document.querySelector(".favoriteList");
 
 const audioPlayer = new Audio();
 

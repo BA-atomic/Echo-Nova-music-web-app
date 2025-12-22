@@ -522,3 +522,44 @@ h3 {
   gap: 0.2rem;
   justify-content: center;
 }
+
+/* === FAVORITE SECTION === */
+.activeLike {
+  color: #fe0b0f;
+  transition: color 0.4s ease;
+}
+
+.favoriteList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 1rem 0 0 1rem;
+}
+
+.favDivContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+}
+
+.favDivImage {
+  width: 40px;
+  height: 40px;
+}
+
+.faveSongDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.faveTitle {
+  font-size: 1.4rem;
+  color: #f7f4ff;
+}
+
+.faveArtist {
+  font-size: 1.2rem;
+  color: #ddd;
+}
