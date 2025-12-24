@@ -530,10 +530,12 @@ h3 {
 }
 
 .favoriteList {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* flex-direction: column; */
+  gap: 1rem;
   padding: 1rem 0 0 1rem;
+  /* margin-top: -300rem; */
 }
 
 .favDivContainer {
@@ -562,4 +564,10 @@ h3 {
 .faveArtist {
   font-size: 1.2rem;
   color: #ddd;
+}
+
+.activeControl {
+  color: #1db954;
+  transform: scale(1.1);
+  transition: 0.2s ease;
 }
