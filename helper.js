@@ -178,6 +178,8 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
         cover: imageUrl,
       };
 
+      highlightCurrentSong();
+
       currentIndex = -1; // the song playing is not from favorites
 
       progress.style.width = `0%`;

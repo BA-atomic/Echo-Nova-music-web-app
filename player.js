@@ -422,6 +422,8 @@ function playSongByIndex(index) {
   currentSong = { ...song };
   progress.style.width = "0%";
   likeBtn.classList.add("activeLike");
+
+  highlightCurrentSong();
 }
 
 function playNextSong() {
@@ -442,6 +444,29 @@ function playNextSong() {
   } else if (currentIndex < favoriteSongs.length - 1) {
     playSongByIndex(currentIndex + 1);
   }
+}
+
+function highlightCurrentSong() {
+  // remove highlight everywhere
+  document
+    .querySelectorAll(".songContainer, .favDivContainer")
+    .forEach((el) => el.classList.remove("currentPlaying"));
+
+  if (!currentSong) return;
+
+  // highlight in main sections
+  document.querySelectorAll(".songContainer").forEach((el) => {
+    if (el.dataset.songUrl === currentSong.url) {
+      el.classList.add("currentPlaying");
+    }
+  });
+
+  // highlight in favorites
+  document.querySelectorAll(".favDivContainer").forEach((el) => {
+    if (el.dataset.url === currentSong.url) {
+      el.classList.add("currentPlaying");
+    }
+  });
 }
 
 function toggleRepeat() {
@@ -755,6 +780,8 @@ likeBtn.addEventListener("click", (e) => {
 
     favoriteList.appendChild(favItem);
   }
+
+  highlightCurrentSong();
 });
 
 nextBtn.addEventListener("click", playNextSong);
