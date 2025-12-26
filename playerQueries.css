@@ -1,0 +1,66 @@
+/* LARGE SCREENS TO SMALL LAPTOPS */
+@media (max-width: 1050px) {
+  .musicPlayerContainer {
+    grid-template-columns: 320px 1fr;
+    gap: 2.4rem;
+  }
+
+  .trendingCollection,
+  .streetCollection,
+  .artistsCollection,
+  .chillCollection,
+  .freshCollection {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1048px) {
+  .musicPlayerContainer {
+    grid-template-columns: 320px 0.5fr;
+    gap: 2.4rem;
+  }
+
+  .trendingCollection,
+  .streetCollection,
+  .artistsCollection,
+  .chillCollection,
+  .freshCollection {
+    gap: 1.2rem;
+  }
+
+  .songContainer {
+    width: 9.8rem;
+    height: 9.8rem;
+  }
+}
+
+@media (max-width: 1032px) {
+  .musicPlayerContainer {
+    grid-template-columns: 305px 0.5fr;
+  }
+}
+
+@media (max-width: 1029px) {
+  .musicPlayerContainer {
+    grid-template-columns: 290px 0.5fr;
+  }
+}
+
+@media (max-width: 1013px) {
+  .musicPlayerContainer {
+    grid-template-columns: 290px 0.5fr;
+  }
+
+  .trendingCollection,
+  .streetCollection,
+  .artistsCollection,
+  .chillCollection,
+  .freshCollection {
+    gap: 1.4rem;
+  }
+
+  .songContainer {
+    width: 9.4rem;
+    height: 9.4rem;
+  }
+}
