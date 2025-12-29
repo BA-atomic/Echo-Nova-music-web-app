@@ -245,11 +245,21 @@ h3 {
 .songName {
   color: #ddd;
   font-size: 1.4rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .artistName {
   color: #999;
   font-size: 1.2rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .errormessage {
@@ -294,7 +304,7 @@ h3 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 20rem;
+  max-width: 8rem;
 }
 
 .trackDetails p {
@@ -303,7 +313,7 @@ h3 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 20rem;
+  max-width: 8rem;
 }
 
 .playerControls {
@@ -532,10 +542,8 @@ h3 {
 .favoriteList {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* flex-direction: column; */
   gap: 1rem;
   padding: 1rem 0 0 1rem;
-  /* margin-top: -300rem; */
 }
 
 .favDivContainer {

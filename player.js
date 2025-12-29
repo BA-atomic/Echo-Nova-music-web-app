@@ -225,6 +225,8 @@ function seek(seekX) {
 }
 
 searchBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+
   dropDown.innerHTML = "";
   const searchTerm = input.value.trim();
   getMusic(searchTerm, dropDown, dropDownDiv, 8, 20);
@@ -236,6 +238,18 @@ searchBtn.addEventListener("click", (e) => {
 closeDropIcon.addEventListener("click", (e) => {
   dropDown.classList.remove("show");
   closeDropIcon.classList.remove("show");
+});
+
+document.addEventListener("click", (e) => {
+  // if click is outside dropdown + search area
+  if (
+    !dropDown.contains(e.target) &&
+    !searchBtn.contains(e.target) &&
+    !input.contains(e.target)
+  ) {
+    dropDown.classList.remove("show");
+    closeDropIcon.classList.remove("show");
+  }
 });
 
 playBtn.addEventListener("click", (e) => {
@@ -421,7 +435,7 @@ likeBtn.addEventListener("click", (e) => {
     favItem.innerHTML = `
       <img src="${currentSong.cover}" class="favDivImage"/>
       <div class="faveSongDetails">
-        <p class="faveArtist">${shortenText(currentSong.title, 10)}</p>
+        <p class="faveTitle">${shortenText(currentSong.title, 10)}</p>
         <p class="faveArtist">${shortenText(currentSong.artist, 10)}</p>
       </div>
     `;

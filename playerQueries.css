@@ -1,4 +1,3 @@
-/* LARGE SCREENS TO SMALL LAPTOPS */
 @media (max-width: 1050px) {
   .musicPlayerContainer {
     grid-template-columns: 320px 1fr;
@@ -16,7 +15,7 @@
 
 @media (max-width: 1048px) {
   .musicPlayerContainer {
-    grid-template-columns: 320px 0.5fr;
+    grid-template-columns: 320px 1fr;
     gap: 2.4rem;
   }
 
@@ -36,19 +35,19 @@
 
 @media (max-width: 1032px) {
   .musicPlayerContainer {
-    grid-template-columns: 305px 0.5fr;
+    grid-template-columns: 300px 1fr;
   }
 }
 
 @media (max-width: 1029px) {
   .musicPlayerContainer {
-    grid-template-columns: 290px 0.5fr;
+    grid-template-columns: 290px 1fr;
   }
 }
 
 @media (max-width: 1013px) {
   .musicPlayerContainer {
-    grid-template-columns: 290px 0.5fr;
+    grid-template-columns: 290px 1fr;
   }
 
   .trendingCollection,
@@ -62,5 +61,564 @@
   .songContainer {
     width: 9.4rem;
     height: 9.4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .musicPlayerContainer {
+    grid-template-columns: 285px 1fr;
+  }
+
+  .songContainer {
+    width: 9.3rem;
+    height: 9.3rem;
+  }
+}
+
+@media (max-width: 983px) {
+  .musicPlayerContainer {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .songContainer {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .faveSongDetails {
+    gap: 0.5rem;
+  }
+
+  .faveTitle {
+    font-size: 1rem;
+  }
+
+  .faveArtist {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 962px) {
+  .musicCollectionHeaderText {
+    font-size: 3.8rem;
+  }
+
+  .headerIcon {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 911px) {
+  .musicCollectionHeaderText {
+    font-size: 3.4rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 898px) {
+  aside {
+    display: none;
+  }
+
+  #likeBtn {
+    display: none;
+  }
+
+  .musicPlayerContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .songContainer {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .navigation {
+    width: 90%;
+  }
+
+  .musicCollectionHeaderText {
+    font-size: 4.8rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 1.6rem;
+  }
+
+  .headerIcon {
+    font-size: 6.4rem;
+  }
+}
+
+@media (max-width: 870px) {
+  .navigation {
+    justify-content: normal;
+    gap: 2.2rem;
+  }
+
+  .searchBtn {
+    padding: 1.2rem 2.4rem;
+  }
+  .siteLogo {
+    font-size: 2rem;
+  }
+
+  .navLogo {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .musicCollectionHeaderText {
+    font-size: 4.4rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 1.4rem;
+  }
+
+  .headerIcon {
+    font-size: 6rem;
+  }
+
+  .trendingCollection,
+  .streetCollection,
+  .artistsCollection,
+  .chillCollection,
+  .freshCollection {
+    margin-bottom: 8rem;
+  }
+
+  .freshCollection {
+    margin-bottom: 2rem;
+  }
+
+  .trending {
+    margin-top: 2.8rem;
+  }
+
+  .nowPlaying {
+    flex: 0 1 20rem;
+  }
+
+  .nowPlaying img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .trackDetails h3 {
+    font-size: 1rem;
+  }
+
+  .trackDetails p {
+    font-size: 0.8rem;
+  }
+
+  .controlButtons {
+    gap: 0.8rem;
+  }
+
+  .playPause {
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+  }
+
+  .progressContainer {
+    gap: 0.5rem;
+  }
+
+  .time {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 745px) {
+  .songContainer {
+    width: 9rem;
+    height: 9rem;
+  }
+  .closeDropIcon {
+    right: 15rem;
+    top: 180%;
+  }
+}
+
+@media (max-width: 715px) {
+  .musicCollectionHeaderText {
+    font-size: 4rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 1.3rem;
+  }
+
+  .headerIcon {
+    font-size: 5.8rem;
+  }
+
+  .musicCollectionTopBox {
+    padding: 3rem 2rem;
+  }
+
+  .nowPlaying {
+    flex: 0 1 25rem;
+  }
+
+  .closeDropIcon {
+    right: 13rem;
+    top: 180%;
+  }
+}
+
+@media (max-width: 679px) {
+  .songContainer {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .closeDropIcon {
+    right: 12rem;
+    top: 180%;
+  }
+}
+
+@media (max-width: 612px) {
+  .navigation {
+    flex-direction: column;
+    margin-bottom: -1rem;
+  }
+
+  .search {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inputMusic {
+    padding: 1rem 0.875rem;
+  }
+
+  .musicCollectionHeaderText {
+    font-size: 3.6rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 1.3rem;
+  }
+
+  .headerIcon {
+    font-size: 5.4rem;
+  }
+  .songContainer {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .playerContainer {
+    padding: 2rem 2.2rem;
+  }
+
+  .nowPlaying {
+    flex: 0 1 20rem;
+  }
+
+  .nowPlaying img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .progressContainer {
+    padding: 0 2rem;
+  }
+
+  .controlButtons {
+    font-size: 1.2rem;
+    gap: 0.2rem;
+    padding: 0 0.2rem;
+  }
+
+  .playPause {
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
+  }
+
+  .dropDown {
+    padding: 1rem 2rem;
+  }
+
+  .dropDown img {
+    width: 4rem;
+  }
+
+  .dropDown h4 {
+    font-size: 1rem;
+  }
+
+  .dropDown p {
+    font-size: 0.6rem;
+  }
+
+  .closeDropIcon {
+    display: none;
+  }
+}
+
+@media (max-width: 558px) {
+  .inputMusic::placeholder {
+    padding-left: 1.6rem;
+  }
+
+  .musicCollectionHeaderText {
+    margin-bottom: 0.8rem;
+    font-size: 3.4rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 1.2rem;
+  }
+
+  .headerIcon {
+    font-size: 5.2rem;
+  }
+
+  .inputMusic {
+    padding-left: 2rem;
+  }
+
+  .inputMusic::placeholder {
+    font-size: 1.2rem;
+  }
+
+  .songContainer {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .songName {
+    font-size: 1.2rem;
+  }
+
+  .artistName {
+    font-size: 1rem;
+  }
+
+  .dropDown {
+    padding: 1.4rem 2rem;
+  }
+
+  .dropDown img {
+    width: 3rem;
+  }
+}
+
+@media (max-width: 536px) {
+  .musicCollectionHeaderText {
+    font-size: 3.2rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 1rem;
+  }
+
+  .headerIcon {
+    font-size: 5rem;
+  }
+
+  .search {
+    padding: 0 4rem;
+  }
+
+  .songContainer {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .songName {
+    font-size: 0.8rem;
+  }
+
+  .artistName {
+    font-size: 0.6rem;
+  }
+
+  .volumeControls {
+    display: none;
+  }
+
+  .nowPlaying {
+    flex: 0 1 0;
+  }
+
+  .controlButtons {
+    gap: 1rem;
+  }
+
+  .playPause {
+    font-size: 2.4rem;
+  }
+
+  .playerContainer {
+    padding-left: 1rem;
+  }
+
+  .nowPlaying {
+    gap: 1rem;
+  }
+
+  .currentTrackTitle {
+    font-size: 0.8rem;
+  }
+
+  .currentTrackArtist {
+    font-size: 0.6rem;
+  }
+
+  .currentTrackImg {
+    width: 3rem;
+  }
+}
+
+@media (max-width: 485px) {
+  .musicCollectionHeaderText {
+    font-size: 2.8rem;
+  }
+
+  .search {
+    padding: 0 8rem;
+  }
+
+  .trendingCollection,
+  .streetCollection,
+  .artistsCollection,
+  .chillCollection {
+    margin-bottom: 5rem;
+  }
+
+  .freshCollection {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 485px) {
+  .musicCollectionHeaderText {
+    font-size: 2.6rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 0.8rem;
+  }
+
+  .headerIcon {
+    font-size: 4.2rem;
+  }
+}
+
+@media (max-width: 410px) {
+  .search {
+    padding: 0 10rem;
+  }
+
+  .songContainer {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+
+@media (max-width: 387px) {
+  .musicCollectionHeaderText {
+    font-size: 2.2rem;
+  }
+
+  .headerIcon {
+    font-size: 3.6rem;
+  }
+
+  .playerContainer {
+    padding-right: 0;
+  }
+
+  .controlButtons {
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+
+  .controlBtn {
+    padding: 0.6rem 0.4rem;
+  }
+
+  .playPause {
+    font-size: 2.2rem;
+  }
+
+  .songContainer {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 346px) {
+  .search {
+    padding: 0 12rem;
+  }
+
+  .musicCollectionHeaderText {
+    font-size: 2rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 0.75rem;
+  }
+
+  .headerIcon {
+    font-size: 3.2rem;
+  }
+
+  .songContainer {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+
+  .controlButtons {
+    gap: 0.5rem;
+  }
+
+  .controlBtn {
+    padding: 0.4rem 0.2rem;
+  }
+
+  .playPause {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 331px) {
+  .songContainer {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
+
+@media (max-width: 324px) {
+  .musicCollectionHeaderText {
+    font-size: 1.8rem;
+  }
+
+  .musicCollectionHeaderSubText {
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 315px) {
+  .songContainer {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }
