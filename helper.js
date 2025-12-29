@@ -62,6 +62,19 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
 
     innerDiv.addEventListener("click", (e) => {
       const divClick = e.currentTarget;
+
+      const allSongs = divToappend.querySelectorAll(".songContainer");
+
+      activePlaylist = Array.from(allSongs).map((song) => ({
+        title: song.dataset.collectionName,
+        artist: song.dataset.artistName,
+        url: song.dataset.songUrl,
+        cover: song.dataset.imageUrl,
+      }));
+
+      // Find index
+      currentIndex = Array.from(allSongs).indexOf(divClick);
+
       if (likeBtn.classList.contains("activeLike")) {
         likeBtn.classList.remove("activeLike");
       }
@@ -75,8 +88,6 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
       };
 
       highlightCurrentSong();
-
-      currentIndex = -1; // the song playing is not from favorites
 
       progress.style.width = `0%`;
       songPoster.src = imageUrl;

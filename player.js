@@ -57,15 +57,14 @@ const musicSearchPool = {
 
 const audioPlayer = new Audio();
 
-// Store favorite songs
-let favoriteSongs = [];
+let activePlaylist = [];
 
-let currentIndex = -1; // position in favoriteSongs
+let currentIndex = -1; // current position in playlist
 let isRepeatOn = false;
 let isShuffleOn = false;
 
 function playSongByIndex(index) {
-  const song = favoriteSongs[index];
+  const song = activePlaylist[index];
   if (!song) return;
 
   currentIndex = index;
@@ -86,12 +85,12 @@ function playSongByIndex(index) {
 }
 
 function playNextSong() {
-  if (favoriteSongs.length === 0) return;
+  if (activePlaylist.length === 0) return;
 
   if (isShuffleOn) {
     let randomIndex;
     do {
-      randomIndex = Math.floor(Math.random() * favoriteSongs.length);
+      randomIndex = Math.floor(Math.random() * activePlaylist.length);
     } while (randomIndex === currentIndex);
 
     playSongByIndex(randomIndex);
@@ -100,7 +99,7 @@ function playNextSong() {
 
   if (currentIndex === -1) {
     playSongByIndex(0);
-  } else if (currentIndex < favoriteSongs.length - 1) {
+  } else if (currentIndex < activePlaylist.length - 1) {
     playSongByIndex(currentIndex + 1);
   }
 }
@@ -161,12 +160,12 @@ function toggleShuffle() {
 }
 
 function playPrevSong() {
-  if (favoriteSongs.length === 0) return;
+  if (activePlaylist.length === 0) return;
 
   if (currentIndex > 0) {
     playSongByIndex(currentIndex - 1);
   } else if (isRepeatOn) {
-    playSongByIndex(favoriteSongs.length - 1);
+    playSongByIndex(activePlaylist.length - 1);
   }
 }
 
@@ -443,7 +442,7 @@ likeBtn.addEventListener("click", (e) => {
     // Click to play favorite song
     favItem.addEventListener("click", (e) => {
       const songData = e.currentTarget.dataset;
-
+      activePlaylist = [...favoriteSongs];
       const index = favoriteSongs.findIndex(
         (song) => song.url === songData.url
       );
