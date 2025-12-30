@@ -18,8 +18,6 @@ function displaySong(songs, divToappend, songNameLimit) {
   }
 
   songs.forEach(({ collectionName, artistName, artworkUrl100, previewUrl }) => {
-    if (!previewUrl) return;
-
     const songName = shortenText(collectionName, songNameLimit);
 
     const imageUrl = artworkUrl100
@@ -49,6 +47,8 @@ function displaySong(songs, divToappend, songNameLimit) {
     `;
 
     innerDiv.addEventListener("click", (e) => {
+      if (!previewUrl) return;
+
       const divClick = e.currentTarget;
 
       const allSongs = divToappend.querySelectorAll(".songContainer");
