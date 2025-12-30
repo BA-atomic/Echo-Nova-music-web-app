@@ -294,11 +294,16 @@
   .navigation {
     flex-direction: column;
     margin-bottom: -1rem;
+    gap: 1.4rem;
   }
 
   .search {
     align-items: center;
     justify-content: center;
+  }
+
+  .toggleBtn {
+    display: none;
   }
 
   .inputMusic {
