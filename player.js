@@ -55,11 +55,15 @@ const musicSearchPool = {
   fresh: ["fresh 2025 afrobeats", "new afrobeats 2025"],
 };
 
-getMusic(pickRandomWord("trending"), trendingCollection, 6, 10);
-getMusic(pickRandomWord("street"), streetCollection, 6, 10);
-getMusic(pickRandomWord("artists"), artistsCollection, 6, 10);
-getMusic(pickRandomWord("chill"), chillCollection, 6, 10);
-getMusic(pickRandomWord("fresh"), freshCollection, 6, 10);
+async function loadCollections() {
+  await getMusic(pickRandomWord("trending"), trendingCollection, 6, 10);
+  await getMusic(pickRandomWord("street"), streetCollection, 6, 10);
+  await getMusic(pickRandomWord("artists"), artistsCollection, 6, 10);
+  await getMusic(pickRandomWord("chill"), chillCollection, 6, 10);
+  await getMusic(pickRandomWord("fresh"), freshCollection, 6, 10);
+}
+
+loadCollections();
 
 const audioPlayer = new Audio();
 
