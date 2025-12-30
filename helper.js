@@ -29,8 +29,9 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
     // Safari-safe CORS proxy
     let imageUrl = artworkUrl100.replace("http://", "https://");
 
-    // Safari fix: force high-res version
-    imageUrl = imageUrl.replace("100x100bb", "600x600bb");
+    if (artworkUrl100) {
+      imageUrl = imageUrl.replace(/\/\d+x\d+bb/, "/600x600bb");
+    }
 
     // Song card
     innerDiv = document.createElement("div");
