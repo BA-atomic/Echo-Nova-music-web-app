@@ -30,13 +30,7 @@ function displaySong(songs, divToappend, innerDiv, songNameLimit) {
     let imageUrl = artworkUrl100.replace("http://", "https://");
 
     // Safari fix: force high-res version
-    imageUrl = imageUrl.replace("100x100bb.jpg", "600x600bb.jpg");
-
-    // avoid Safari WebP bug
-    imageUrl = imageUrl.replace(".webp", ".jpg");
-
-    // cache bust
-    imageUrl += `?v=${Date.now()}`;
+    imageUrl = imageUrl.replace("100x100bb", "600x600bb");
 
     // Song card
     innerDiv = document.createElement("div");
