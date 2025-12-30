@@ -154,16 +154,6 @@ function toggleRepeat() {
   repeatBtn.classList.toggle("activeControl", isRepeatOn);
 }
 
-audioPlayer.addEventListener("ended", () => {
-  if (isRepeatOn) {
-    audioPlayer.currentTime = 0;
-    audioPlayer.play();
-    return;
-  }
-
-  playNextSong();
-});
-
 function toggleShuffle() {
   isShuffleOn = !isShuffleOn;
 
@@ -477,3 +467,12 @@ prevBtn.addEventListener("click", () => {
 });
 shuffleBtn.addEventListener("click", toggleShuffle);
 repeatBtn.addEventListener("click", toggleRepeat);
+audioPlayer.addEventListener("ended", () => {
+  if (isRepeatOn) {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play();
+    return;
+  }
+
+  playNextSong();
+});
