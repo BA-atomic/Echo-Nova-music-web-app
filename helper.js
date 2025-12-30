@@ -37,6 +37,7 @@ function displaySong(songs, divToappend, songNameLimit) {
       <img
         src="${imageUrl}"
         class="imagePoster"
+        loading="lazy"
         alt="music cover art"
       >
       <div class="songDetails">
