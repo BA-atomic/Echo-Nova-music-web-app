@@ -12,9 +12,8 @@ async function getMusic(searchWord, divToappend, limit, songNameLimit) {
 }
 
 function displaySong(songs, divToappend, songNameLimit) {
-  divToappend.innerHTML = "";
   if (!songs || songs.length === 0) {
-    divToappend.innerHTML = `<p class="errormessage>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
+    divToappend.innerHTML = `<p class="errormessage">CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
     return;
   }
 
