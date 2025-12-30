@@ -62,15 +62,29 @@ async function loadCollections() {
   chillCollection.innerHTML = "";
   freshCollection.innerHTML = "";
 
-  await Promise.all([
-    getMusic(pickRandomWord("trending"), trendingCollection, 6, 10),
-    getMusic(pickRandomWord("street"), streetCollection, 6, 10),
-    getMusic(pickRandomWord("artists"), artistsCollection, 6, 10),
-    getMusic(pickRandomWord("chill"), chillCollection, 6, 10),
-    getMusic(pickRandomWord("fresh"), freshCollection, 6, 10),
-  ]);
+  const collectionMap = {
+    trending: trendingCollection,
+    street: streetCollection,
+    artists: artistsCollection,
+    chill: chillCollection,
+    fresh: freshCollection,
+  };
+
+  for (const category in musicSearchPool) {
+    const collectionDiv = collectionMap[category];
+
+    for (const term of musicSearchPool[category]) {
+      await getMusic(term, collectionDiv, 6, 10); // fetch songs
+      await delay(150); // wait 150ms before the next request
+    }
+  }
 }
+
 loadCollections();
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 const audioPlayer = new Audio();
 

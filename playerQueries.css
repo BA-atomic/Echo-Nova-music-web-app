@@ -622,3 +622,10 @@
     height: 3.2rem;
   }
 }
+
+@supports (-webkit-backdrop-filter: blur(0)) {
+  .dropDown {
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+}
