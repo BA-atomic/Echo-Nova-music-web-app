@@ -1,39 +1,34 @@
-async function getMusic(
-  searchWord,
-  divToappend,
-  innerDiv,
-  limit,
-  songNameLimit
-) {
+async function getMusic(searchWord, divToappend, limit, songNameLimit) {
   try {
     const response = await axios.get("https://itunes.apple.com/search?", {
       params: { term: searchWord, media: "music", limit: limit },
     });
     const songs = response.data.results;
-    displaySong(songs, divToappend, innerDiv, songNameLimit);
+    displaySong(songs, divToappend, songNameLimit);
   } catch (error) {
     divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
     divToappend.style.justifyContent = "center";
   }
 }
 
-function displaySong(songs, divToappend, innerDiv, songNameLimit) {
-  if (songs.length === 0) {
+function displaySong(songs, divToappend, songNameLimit) {
+  divToappend.innerHTML = "";
+  if (!songs || songs.length === 0) {
     divToappend.innerHTML = `<p class="errormessage>CONTENT NOT FOUND. PLEASE TRY AGAIN LATER.</p>`;
     return;
   }
 
   songs.forEach(({ collectionName, artistName, artworkUrl100, previewUrl }) => {
+    if (!previewUrl) return;
+
     const songName = shortenText(collectionName, songNameLimit);
 
-    // Safari-safe CORS proxy
-    let imageUrl = artworkUrl100.replace("http://", "https://");
-
-    // Safari fix: force high-res version
-    imageUrl = imageUrl.replace("100x100bb", "600x600bb");
+    const imageUrl = artworkUrl100
+      .replace("http://", "https://")
+      .replace(/100x100bb(\.jpg)?/, "600x600bb.jpg");
 
     // Song card
-    innerDiv = document.createElement("div");
+    const innerDiv = document.createElement("div");
     innerDiv.classList.add("songContainer");
 
     innerDiv.dataset.collectionName = songName;

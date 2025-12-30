@@ -55,6 +55,12 @@ const musicSearchPool = {
   fresh: ["fresh 2025 afrobeats", "new afrobeats 2025"],
 };
 
+getMusic(pickRandomWord("trending"), trendingCollection, 6, 10);
+getMusic(pickRandomWord("street"), streetCollection, 6, 10);
+getMusic(pickRandomWord("artists"), artistsCollection, 6, 10);
+getMusic(pickRandomWord("chill"), chillCollection, 6, 10);
+getMusic(pickRandomWord("fresh"), freshCollection, 6, 10);
+
 const audioPlayer = new Audio();
 
 let activePlaylist = [];
@@ -176,12 +182,6 @@ function pickRandomWord(category) {
   return word[randomIndex];
 }
 
-getMusic(pickRandomWord("trending"), trendingCollection, songDiv, 6, 10);
-getMusic(pickRandomWord("street"), streetCollection, songDiv, 6, 10);
-getMusic(pickRandomWord("artists"), artistsCollection, songDiv, 6, 10);
-getMusic(pickRandomWord("chill"), chillCollection, songDiv, 6, 10);
-getMusic(pickRandomWord("fresh"), freshCollection, songDiv, 6, 10);
-
 function playSong(parentElement) {
   audioPlayer.src = parentElement.dataset.songUrl;
   audioPlayer.load();
@@ -228,7 +228,7 @@ searchBtn.addEventListener("click", (e) => {
 
   dropDown.innerHTML = "";
   const searchTerm = input.value.trim();
-  getMusic(searchTerm, dropDown, dropDownDiv, 8, 20);
+  getMusic(searchTerm, dropDown, 8, 20);
 
   dropDown.classList.add("show");
   closeDropIcon.classList.add("show");
