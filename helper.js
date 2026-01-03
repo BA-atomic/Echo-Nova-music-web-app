@@ -1,13 +1,22 @@
 async function getMusic(searchWord, divToappend, limit, songNameLimit) {
-  try {
-    const response = await axios.get("https://itunes.apple.com/search?", {
-      params: { term: searchWord, media: "music", limit: limit },
-    });
-    const songs = response.data.results;
-    displaySong(songs, divToappend, songNameLimit);
-  } catch (error) {
-    divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
-    divToappend.style.justifyContent = "center";
+
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+  if (isIOS) {
+    divToappend.innerHTML = `<p class="errormessage">This feature is not available for iOS devices.</p>`;
+  } else {
+    try {
+      const response = await axios.get("https://itunes.apple.com/search?", {
+        params: { term: searchWord, media: "music", limit: limit },
+      });
+      const songs = response.data.results;
+      displaySong(songs, divToappend, songNameLimit);
+      // console.log(songs);
+    } catch (error) {
+      // console.log('ERROR RESULT:', error);
+      divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
+      divToappend.style.justifyContent = "center";
+    }
   }
 }
 
