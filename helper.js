@@ -3,7 +3,31 @@ async function getMusic(searchWord, divToappend, limit, songNameLimit) {
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   if (isIOS) {
-    divToappend.innerHTML = `<p class="errormessage">This feature is not available for iOS devices.</p>`;
+    //----------------------------------------------------------------
+    //- Gemini helped with the search params connection to our backend
+    //----------------------------------------------------------------
+    try {
+        const searchParams = new URLSearchParams({
+            term: searchWord,
+            media: "music",
+            limit: limit
+        });
+        //---------------------------------------------------------------------------------
+        //- Make request to our own backend server as a workaround for IOS-only CORS issues
+        //---------------------------------------------------------------------------------
+        const response = await fetch(`http://[your IP address goes here]:4000/get/search-list?${searchParams.toString()}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        //-
+        const data = await response.json();
+        const songs = data.results;
+        displaySong(songs, divToappend, songNameLimit);
+    } catch (error) {
+      divToappend.innerHTML = `<p class="errormessage">This feature is not available for iOS devices.</p>`;
+    }
   } else {
     try {
       const response = await axios.get("https://itunes.apple.com/search?", {
@@ -11,9 +35,7 @@ async function getMusic(searchWord, divToappend, limit, songNameLimit) {
       });
       const songs = response.data.results;
       displaySong(songs, divToappend, songNameLimit);
-      // console.log(songs);
     } catch (error) {
-      // console.log('ERROR RESULT:', error);
       divToappend.innerHTML = `<p class="errormessage">Something went wrong. Check internet connection and try again later.</p>`;
       divToappend.style.justifyContent = "center";
     }
