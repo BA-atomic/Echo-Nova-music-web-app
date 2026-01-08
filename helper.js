@@ -15,7 +15,7 @@ async function getMusic(searchWord, divToappend, limit, songNameLimit) {
         //---------------------------------------------------------------------------------
         //- Make request to our own backend server as a workaround for IOS-only CORS issues
         //---------------------------------------------------------------------------------
-        const response = await fetch(`http://[your IP address goes here]:4000/get/search-list?${searchParams.toString()}`, {
+        const response = await fetch(`http://YOUR_IP_ADDRESS_GOES_HERE:4000/get/search-list?${searchParams.toString()}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
