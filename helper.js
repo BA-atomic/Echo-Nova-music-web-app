@@ -1,5 +1,4 @@
 async function getMusic(searchWord, divToappend, limit, songNameLimit) {
-
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   if (isIOS) {
@@ -14,8 +13,18 @@ async function getMusic(searchWord, divToappend, limit, songNameLimit) {
         });
         //---------------------------------------------------------------------------------
         //- Make request to our own backend server as a workaround for IOS-only CORS issues
-        //---------------------------------------------------------------------------------
-        const response = await fetch(`http://YOUR_IP_ADDRESS_GOES_HERE:4000/get/search-list?${searchParams.toString()}`, {
+      //---------------------------------------------------------------------------------
+      
+      //--------------------This is for development---------------------------------//
+        // const response = await fetch(`http://YOUR_IP_ADDRESS_GOES_HERE:4000/get/search-list?${searchParams.toString()}`, {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+      // });
+      
+      //--------------------This is for production---------------------------------//
+       const response = await fetch(`https://echo-nova-music-web-app-backend.vercel.app/get/search-list?${searchParams.toString()}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
