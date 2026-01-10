@@ -14,3 +14,11 @@ const response = await fetch(`http://YOUR_IP_ADDRESS_GOES_HERE:4000 ...etc.
 ````
 
 Step 4: Visit the Backend repo's readme for instructions on how to ensure successful itunes music fetch on iOS devices.
+
+### [Backend] Production: iOS itunes API workaround
+
+Step 1: In the frontend's helper.js, in the iOS code, locate the comment that says `This is for development`, comment out the block of code below.
+
+Step 2: Still in the same helper.js, also locate the comment that says: `This is for production`, uncomment the block of code below.
+
+Step 4: Visit the Backend repo's readme for instructions on how to ensure successful itunes music fetch on iOS devices.
